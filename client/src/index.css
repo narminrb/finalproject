@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: 'Amithen';
+    src: url('/fonts/Amithen.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  body{
+    background-color: white;
+  }
