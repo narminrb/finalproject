@@ -1,0 +1,221 @@
+/* .home-popular-bg {
+    background-image: url('https://xstore.b-cdn.net/demos/2/artmaxy/wp-content/uploads/sites/23/2019/06/clem-onojeghuo-197522.jpg?id=136');
+  }
+  
+
+  .home_bg {
+    background-image: url('https://xstore.b-cdn.net/demos/2/artmaxy/wp-content/uploads/sites/23/2019/06/spot.png?id=138');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain; 
+    width: 100%; 
+    margin: 0 auto; 
+  }
+  
+
+  h2{
+    font-size: 50px;
+    color: #ffffff;
+    line-height: 2.5;
+    text-align: center;
+  }
+
+  #app {
+    height: 100%;
+  }
+  html,
+  body {
+    position: relative;
+    height: 100%;
+  }
+  
+  body {
+    background: #000;
+    font-family:
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
+    font-size: 14px;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: transparent;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .swiper-button-next,
+.swiper-button-prev {
+  color: white !important;      
+  width: 30px;                
+  height: 30px;                
+}
+
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 20px;              
+}
+
+
+.swiper-button-next {
+  right: 10px;                 
+}
+
+.swiper-button-prev {
+  left: 10px;                   
+}
+.mySwiper {
+    position: relative;
+    padding: 0 50px;
+    overflow: hidden;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: white !important;
+    width: 30px;
+    height: 30px;
+    top: 50%;
+    margin-top: -15px;
+    position: absolute;
+    z-index: 10;
+  }
+  
+  .swiper-button-next {
+    right: 10px;
+  }
+  
+  .swiper-button-prev {
+    left: 10px;
+  }
+  
+.mySwiper .swiper-pagination {
+  position: relative;
+  bottom: -30px;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  z-index: 10;
+}
+.mySwiper .swiper-pagination-bullet {
+  background: white !important;
+  opacity: 0.7;
+  width: 12px;
+  height: 12px;
+  margin: 0 6px !important;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.mySwiper .swiper-pagination-bullet-active {
+  background: white !important;
+  opacity: 1;
+}
+html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: #000;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #444;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .mySwiperr {
+        padding-bottom: 40px;
+        position: relative;
+        overflow:hidden;
+      }
+      
+      .swiper-button-next,
+      .swiper-button-prev {
+        color: white !important;
+      }
+      
+      .swiper-pagination-bullet {
+        background: white !important;
+        opacity: 0.6;
+        width: 12px;
+        height: 12px;
+      }
+      
+      .swiper-pagination-bullet-active {
+        opacity: 1;
+      }
+       */
+       .home-popular-bg {
+        background-image: url('https://xstore.b-cdn.net/demos/2/artmaxy/wp-content/uploads/sites/23/2019/06/clem-onojeghuo-197522.jpg?id=136');
+      }
+
+       .popularSwiper {
+        padding: 0 25px 40px;
+        position: relative;
+        background-color: transparent;
+
+      }
+      
+      .popularSwiper .swiper-button-next,
+      .popularSwiper .swiper-button-prev {
+        color: white !important;
+      }
+      
+      .popularSwiper .swiper-pagination-bullet {
+        background: white !important;
+        opacity: 0.6;
+        width: 10px;
+        height: 10px;
+      }
+      
+      .popularSwiper .swiper-pagination-bullet-active {
+        opacity: 1;
+      }
+
+      .popularSwiper .swiper-slide{
+        background-color: transparent;
+      }
+      
+      .popularSwiper .swiper-button-next {
+        right: -10px;
+      }
+      
+      .popularSwiper .swiper-button-prev {
+        left: -10px;
+      }
+      

@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import ConnectDb from "./db/ConnectDb.js";
 import homeSliderRouter from "./routes/Home/homeHeaderSlider/HomeHeaderSlider.js";
 import homeCategoryRouter from "./routes/Home/homeCategory/HomeCategory.js";
+import homePopularRouter from "./routes/Home/homePopular/HomePopular.js";
 dotenv.config();
 
 const app = express();
@@ -28,6 +29,7 @@ ConnectDb();
 
 app.use("/api/homeslider", homeSliderRouter);
 app.use("/api/homecategory", homeCategoryRouter);
+app.use("/api/homepopular", homePopularRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
