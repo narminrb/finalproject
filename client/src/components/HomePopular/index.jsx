@@ -9,7 +9,7 @@ import 'swiper/css/pagination';
 
 import { getHomePopular } from '../../api/homePopular';
 import HomePopularCard from '../../shared/PopularItemCard';
-import './styles.css'; // Custom CSS for styling bullets, arrows
+import './styles.css'; 
 
 const HomePopularSwiper = () => {
   const { data, isLoading, error } = useQuery({
@@ -24,18 +24,42 @@ const HomePopularSwiper = () => {
 
   return (
     <div className="home-popular-bg bg-cover bg-center bg-no-repeat py-20">
+      <div className='home_bgg'>
+                <h2 className='popular_title'>
+                    Popular items
+                </h2>
+            </div>
       <div className="container max-w-screen-xl mx-auto my-10 px-3 relative">
         <Swiper
           modules={[Navigation, Pagination]}
           navigation
           pagination={{ clickable: true }}
           slidesPerView={3}
-          spaceBetween={20}
+          spaceBetween={30}
+          loop={true}
+          breakpoints={{
+            360: {
+              slidesPerView: 1,
+              spaceBetween: 30,
+            },
+            640: {
+              slidesPerView: 1,
+              spaceBetween: 15,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 30,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            }
+          }}
           className="popularSwiper"
         >
           {popularItems.map((item) => (
             <SwiperSlide key={item._id}>
-              <HomePopularCard category={item} />
+              <HomePopularCard popular={item} />
             </SwiperSlide>
           ))}
         </Swiper>

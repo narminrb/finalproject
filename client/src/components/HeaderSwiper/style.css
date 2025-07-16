@@ -43,7 +43,7 @@
     object-fit: cover;
   }
   
-  h2 {
+  .header_swiper_name {
     font-family: 'Amithen', cursive;
     font-size: 72px;
     line-height: 1.2;

@@ -2,7 +2,6 @@ import { v4 as uuidv4 } from "uuid";
 import { upload } from "../../helper/FileStore.js";
 import HomePopularSchema from "../../schema/homeSchema/HomePopularSchema.js";
 
-
 export const getHomePopular = async (req, res) => {
   try {
     const popularItems = await HomePopularSchema.find().populate("category");
@@ -21,7 +20,6 @@ export const getHomePopular = async (req, res) => {
   }
 };
 
-
 export const createHomePopular = (req, res) => {
   upload.single("image")(req, res, async (err) => {
     if (err) {
@@ -36,11 +34,23 @@ export const createHomePopular = (req, res) => {
       painter,
       size,
       rating,
-      category, 
+      category,
+      inStock,
+      sale,
     } = req.body;
 
-    if (!name || !description || !price || !painter || !size || !category || !req.file) {
-      return res.status(400).json({ message: "All fields and image are required" });
+    if (
+      !name ||
+      !description ||
+      !price ||
+      !painter ||
+      !size ||
+      inStock === undefined ||
+      sale === undefined ||
+      !category ||
+      !req.file
+    ) {
+      return res.status(400).json({ message: "All required fields must be provided including image, inStock, and sale" });
     }
 
     try {
@@ -55,6 +65,8 @@ export const createHomePopular = (req, res) => {
         image: req.file.path,
         category,
         rating: rating || 0,
+        inStock: inStock === "true" || inStock === true, 
+        sale: sale === "true" || sale === true,
       });
 
       return res.status(201).json({

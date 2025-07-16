@@ -15,7 +15,7 @@ const HomeCategories = () => {
   return (
     <div className="home-categories-bg bg-cover bg-center bg-no-repeat py-10">
             <div className='home_bg'>
-                <h2>
+                <h2 className='category_title'>
                     Categories
                 </h2>
             </div>

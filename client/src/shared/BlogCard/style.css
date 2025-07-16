@@ -1,0 +1,79 @@
+.popular_name{
+    font-family: 'Amithen', cursive;
+    color: #222222;
+    font-size: 32px;
+    text-transform: uppercase;
+    
+}
+
+
+.outer_popular{
+    background-color: white;
+    text-align: center;
+    padding: 20px 20px;
+}
+
+
+
+.inner_div:hover {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.popular_price{
+    font-family: Amithen;
+    color: #74a8b5;
+    font-size: 26px;
+}
+
+.popular_desc{
+    padding-right: 20px !important;
+    padding-left: 20px !important;
+    font-size: 16px;
+    color: #555555;
+    margin-bottom: 1.43rem;
+    margin-top: 35px;
+}
+
+.paint{
+    font-family: Montserrat,sans-serif;
+    color: #555555;
+    font-size: 16px;
+}
+.paint_popular{
+    font-family: Montserrat,sans-serif;
+    color: #222222;
+    font-size: 16px;
+}
+.paint_box{
+    padding: 10px;
+    border-top-width: 1px !important;
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+    padding-left: 0px !important;
+    border-top-color: #e1e1e1 !important;
+    border-top-style: solid !important;
+}
+.size_popular{
+    font-family: Montserrat,sans-serif;
+    color: #555555;
+    font-size: 16px;
+}
+
+.blog_name{
+    font-family: "Amithen";
+    font-weight: 400;
+    line-height: 38px;
+    color: #222;
+    font-size: 32px;
+    width: 260px;
+    margin: 0 auto;
+}
+
+.blog_read{
+    font-size: 1.1rem;
+    position: relative;
+    display: inline-block;
+    color: #74a8b5;
+    cursor: pointer;
+}
