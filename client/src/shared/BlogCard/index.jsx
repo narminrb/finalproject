@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.css'
+import { Link } from 'react-router-dom';
 
 const BlogCard = ({ popular }) => {
   const trimmedDescription = popular.descfirst
@@ -26,7 +27,7 @@ const BlogCard = ({ popular }) => {
         <p className='popular_desc'>{trimmedDescription}</p>
         <div>
             <h2 className='blog_read'>
-                <a>Continue Reading</a>
+            <Link to={`/blog/${popular.id}`}>Continue Reading</Link>
             </h2>
         </div>
       </div>

@@ -5,7 +5,7 @@ import './styles.css'
 
 const BlogPage = () => {
   return (
-    <div className='home-categories-bg '>
+    <div className='home-categories-bg'>
         <BlogPageComponent/>
         <Brands/>
     </div>

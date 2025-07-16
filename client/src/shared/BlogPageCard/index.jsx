@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.css';
+import { Link } from 'react-router-dom';
 
 const BlogPageCard = ({ blogpage }) => {
   const trimmedDescription = blogpage.descfirst
@@ -20,7 +21,7 @@ console.log(blogpage)
         <h2 className="blogpage_name">{blogpage.name}</h2>
         <p className="blogpage_desc">{trimmedDescription}</p>
         <h2 className="blog_read">
-          <a>Continue Reading</a>
+        <Link to={`/blog/${blogpage.id}`}>Continue Reading</Link>
         </h2>
       </div>
     </div>
