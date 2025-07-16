@@ -64,7 +64,7 @@ const BlogPageComponent = () => {
   if (isLoading) return <p>Loading...</p>;
 
   return (
-    <div className="home-categories-bg bg-cover bg-center bg-no-repeat py-10">
+    <div className="bg-cover bg-center bg-no-repeat py-10">
       <div className="home_bg">
         <h2 className="category_title">Blog</h2>
       </div>
