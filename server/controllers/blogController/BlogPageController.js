@@ -73,3 +73,22 @@ export const createBlogPage = (req, res) => {
       }
     });
   };
+
+
+  export const getBlogPageById = async (req, res) => {
+    try {
+      const { id } = req.params;
+  
+      const blogItem = await BlogPageSchema.findOne({ id: id });
+  
+      if (!blogItem) {
+        return res.status(404).json({ message: "Blog item not found" });
+      }
+  
+      return res.status(200).json(blogItem);
+    } catch (error) {
+      console.error("GET BLOG ITEM BY ID ERROR:", error);
+      return res.status(500).json({ message: "Server error", error: error.message });
+    }
+  };
+  

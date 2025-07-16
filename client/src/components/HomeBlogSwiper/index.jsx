@@ -21,6 +21,8 @@ const HomeBlogSwiper = () => {
   if (error) return <p>Error loading popular items.</p>;
 
   const popularItems = data?.data || [];
+  const limitedItems = popularItems.slice(0, 6);
+
 
   return (
     <div className="home-blog-bg bg-cover bg-center bg-no-repeat py-20">
@@ -57,11 +59,12 @@ const HomeBlogSwiper = () => {
           }}
           className="popularSwiper"
         >
-          {popularItems.map((item) => (
-            <SwiperSlide key={item._id}>
-              <BlogCard popular={item} />
-            </SwiperSlide>
-          ))}
+          {limitedItems.map((item) => (
+  <SwiperSlide key={item._id}>
+    <BlogCard popular={item} />
+  </SwiperSlide>
+))}
+
         </Swiper>
       </div>
     </div>
