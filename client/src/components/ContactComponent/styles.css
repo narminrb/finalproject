@@ -1,0 +1,92 @@
+.blog-detail-container {
+    background-color: white;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+    margin-bottom: 50px;
+  }
+  
+  .blog-header-img img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .blog-title {
+    font-size: 50px;
+    letter-spacing: 2px;
+    margin: 20px 0 10px;
+    text-align: center;
+    font-size: 50px;
+    letter-spacing: 2px;
+    font-family: "Amithen";
+    font-weight: 400;
+    line-height: 38px;
+    color: #222;
+  }
+  
+  .blog-meta {
+    text-align: center;
+    color: #888;
+    margin-bottom: 30px;
+    font-size: 16px;
+  }
+  
+  .blog-desc {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    text-align: justify;
+    text-align: center;
+    letter-spacing: .7px;
+    color: #888888;
+    font-size: 14px;
+  }
+  
+  .blog-section {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+  
+  .blog-section .reverse {
+    flex-direction: row-reverse !important;
+  }
+  
+  
+  .section-left img,
+  .section-right img {
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .section-left,
+  .section-right {
+    flex: 1;
+  }
+  
+  .section-right p,
+  .section-left p {
+    text-align: center;
+    letter-spacing: .7px;
+    color: #888888;
+    font-size: 14px;
+  }
+  
+  .home-categories-bg {
+    background-image: url('https://xstore.b-cdn.net/demos/2/artmaxy/wp-content/uploads/sites/23/2020/01/main-bg-2.jpg');
+  }
+  
+  .home_bg {
+    background-image: url('https://xstore.b-cdn.net/demos/2/artmaxy/wp-content/uploads/sites/23/2019/06/spot.png?id=138');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain; 
+    width: 100%; 
+    margin: 0 auto; 
+  }
+  
+  .blog-detail-content{
+    padding: 40px 100px;
+  }
