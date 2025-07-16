@@ -11,6 +11,8 @@ import blogPageRouter from './routes/Blog/BlogPage.js'
 import aboutRouter from './routes/About/AboutPage.js'
 import aboutOffersRouter from './routes/About/AboutOffers.js'
 import brandsRouter from './routes/Brands/Brands.js'
+import contactRouter from './routes/Contact/Contact.js'
+import contactElementsRouter from './routes/Contact/ContactElements.js'
 
 dotenv.config();
 
@@ -41,6 +43,8 @@ app.use("/api/blogpage",blogPageRouter)
 app.use("/api/aboutpage",aboutRouter)
 app.use("/api/aboutoffers",aboutOffersRouter)
 app.use("/api/brands",brandsRouter)
+app.use("/api/contacts",contactRouter)
+app.use("/api/contactelements",contactElementsRouter)
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
