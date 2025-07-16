@@ -1,0 +1,35 @@
+.offers_card {
+    padding-top: 40px !important;
+    background-color: #ffffff !important;
+    margin: 0 auto 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 240px;
+}
+.offers_card:hover {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  }
+.offers_imgbox img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.offers_name {
+    margin-top: 25px;
+    color: #222222;
+    font-size: 18px;
+    margin-bottom: 10px;
+    line-height: 22px;
+}
+
+.offers_desc {
+    margin-top: 10px;
+    max-width: 250px;
+    color: #888888;
+    font-size: 14px;
+    margin-top: 10px;
+}

@@ -9,6 +9,9 @@ import homePopularRouter from "./routes/Home/homePopular/HomePopular.js";
 import blogRouter from './routes/Blog/Blog.js'
 import blogPageRouter from './routes/Blog/BlogPage.js'
 import aboutRouter from './routes/About/AboutPage.js'
+import aboutOffersRouter from './routes/About/AboutOffers.js'
+import brandsRouter from './routes/Brands/Brands.js'
+
 dotenv.config();
 
 const app = express();
@@ -36,6 +39,8 @@ app.use("/api/homepopular", homePopularRouter);
 app.use("/api/blog",blogRouter)
 app.use("/api/blogpage",blogPageRouter)
 app.use("/api/aboutpage",aboutRouter)
+app.use("/api/aboutoffers",aboutOffersRouter)
+app.use("/api/brands",brandsRouter)
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
