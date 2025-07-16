@@ -13,6 +13,8 @@ import aboutOffersRouter from './routes/About/AboutOffers.js'
 import brandsRouter from './routes/Brands/Brands.js'
 import contactRouter from './routes/Contact/Contact.js'
 import contactElementsRouter from './routes/Contact/ContactElements.js'
+import shopRouter from './routes/Shop/Shop.js'
+import shopReviewRouter from './routes/Shop/ShopReview.js'
 
 dotenv.config();
 
@@ -45,6 +47,8 @@ app.use("/api/aboutoffers",aboutOffersRouter)
 app.use("/api/brands",brandsRouter)
 app.use("/api/contacts",contactRouter)
 app.use("/api/contactelements",contactElementsRouter)
+app.use("/api/shop",shopRouter)
+app.use("/api/reviews",shopReviewRouter)
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

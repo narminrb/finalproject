@@ -6,6 +6,7 @@ import BlogPage from "./pages/blogPage";
 import AboutPage from "./pages/aboutPage";
 import BlogDetailPage from "./pages/blogDetailPage";
 import ContactPage from "./pages/contactPage";
+import ShopPage from "./pages/shopPage";
 
 export const router = createBrowserRouter([
     {
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
           path: "contactus",
           element: <ContactPage/>,
         },
+        {
+          path:"shop",
+          element:<ShopPage/>
+        }
       ],
     },
   ]);
