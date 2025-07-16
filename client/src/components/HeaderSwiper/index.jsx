@@ -35,7 +35,7 @@ const HeaderSwiper = () => {
           />
 
           <div className="absolute inset-0 flex flex-col justify-center items-center text-white px-6 text-center">
-            <h2>{slide.name}</h2>
+            <h2 className='header_swiper_name'>{slide.name}</h2>
             <p className="mb-6 max-w-4xl">{slide.description}</p>
             <div className="btn uppercase">
               Learn More

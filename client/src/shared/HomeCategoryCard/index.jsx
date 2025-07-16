@@ -13,7 +13,7 @@ const HomeCategoryCard = ({ category }) => {
       </div>
       <div className="outer_div">
         <div className='inner_div'>
-        <h4>
+        <h4 className='category_name'>
         {category.category}
         </h4>
         </div>

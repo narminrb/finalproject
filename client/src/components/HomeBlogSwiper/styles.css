@@ -1,0 +1,54 @@
+    .home-blog-bg {
+        background-image: url('https://xstore.b-cdn.net/demos/2/artmaxy/wp-content/uploads/sites/23/2019/06/photo-1486850646920-00356a8066be.jpg?id=137');
+      }
+      .home_bgg{
+        background-image: url('https://xstore.b-cdn.net/demos/2/artmaxy/wp-content/uploads/sites/23/2019/06/spot.png?id=138');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain; 
+        width: 100%; 
+        margin: 0 auto; 
+      }
+      .popular_title{
+        font-size: 50px;
+        color: #ffffff;
+        line-height: 2.5;
+        text-align: center;
+        font-family: "Amithen";
+        font-weight: 400;
+      }
+       .popularSwiper {
+        padding: 0 25px 40px;
+        position: relative;
+        background-color: transparent;
+
+      }
+      
+      .popularSwiper .swiper-button-next,
+      .popularSwiper .swiper-button-prev {
+        color: white !important;
+      }
+      
+      .popularSwiper .swiper-pagination-bullet {
+        background: white !important;
+        opacity: 0.6;
+        width: 10px;
+        height: 10px;
+      }
+      
+      .popularSwiper .swiper-pagination-bullet-active {
+        opacity: 1;
+      }
+
+      .popularSwiper .swiper-slide{
+        background-color: transparent;
+      }
+      
+      .popularSwiper .swiper-button-next {
+        right: -10px;
+      }
+      
+      .popularSwiper .swiper-button-prev {
+        left: -10px;
+      }
+      

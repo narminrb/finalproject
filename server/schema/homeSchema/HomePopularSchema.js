@@ -36,6 +36,16 @@ const HomePopularSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+  inStock:{
+    type:Boolean,
+    required: true,
+    trim: true,
+  },
+  sale:{
+    type:Boolean,
+    required: true,
+    trim: true,
+  },
   image: {
     type: String,
     required: true,
