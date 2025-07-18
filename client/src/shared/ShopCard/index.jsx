@@ -12,14 +12,14 @@ const ShopCard = ({ popular }) => {
       <h2 className='popular_name'>{popular.name}</h2>
       </div>
       <div className="popular_card relative">
-  {popular.sale && <div className="onSale">SALE</div>}
-  {!popular.inStock && <div className="inStock">OUT OF STOCK</div>}
-  <img
-    src={`http://localhost:3000/${popular.image.replace(/\\/g, '/')}`}
-    alt={popular.name}
-    className="w-full h-[279px] object-cover"
-  />
-</div>
+            {popular.sale && <div className="onSale">SALE</div>}
+            {!popular.inStock && <div className="inStock">OUT OF STOCK</div>}
+            <img
+                src={`http://localhost:3000/${popular.image.replace(/\\/g, '/')}`}
+                alt={popular.name}
+                className="w-full h-[279px] object-cover"
+            />
+            </div>
 
 
       <div className="outer_popular">
