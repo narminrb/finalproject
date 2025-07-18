@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import './styles.css'
 import HomePopularCard from '../../shared/PopularItemCard';
 import { getShops } from '../../api/shop';
+import ShopCard from '../../shared/ShopCard';
 
 const ShopComponent = () => {
   const { data, isLoading } = useQuery({
@@ -23,7 +24,7 @@ const ShopComponent = () => {
     <div className="container max-w-screen-xl mx-auto my-10 px-3 relative">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {data?.data.map((popular) => (
-          <HomePopularCard key={popular.id} popular={popular} />
+          <ShopCard key={popular.id} popular={popular} />
         ))}
       </div>
     </div>
