@@ -3,6 +3,9 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import './styles.css'
 import { getShopId } from '../../api/shopdetail';
+import ShopSwiper from '../../components/ShopSwiper';
+import Brands from '../../components/Brands';
+import ShopTabs from '../../shared/ShopTabs';
 
 const ShopDetailPage = () => {
   const { id } = useParams();
@@ -58,8 +61,12 @@ const ShopDetailPage = () => {
         </div>
       </div>
 
+<ShopTabs/>
+<ShopSwiper/>
+
     </div>
     </div>
+    <Brands/>
     </div>
   );
 };

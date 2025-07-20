@@ -1,0 +1,84 @@
+.tabs-container {
+    width: 100%;
+    margin-top: 40px;
+  }
+  
+  .tabs {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    border-bottom: 1px solid #e1e1e1;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .tab {
+    position: relative;
+    padding: 10px 0;
+    font-size: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #222;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  
+  .tab.active {
+    color: #74a8b5;
+  }
+  
+  .tab.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 2px;
+    width: 100%;
+    background-color: #74a8b5;
+    transition: width 0.2s ease-in-out;
+    z-index: 1;
+  }
+  
+  .tab-content {
+    padding: 8px 0;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    resize: vertical;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  .submit-review {
+    margin-top: 10px;
+    padding: 10px 16px;
+    background-color: #74a8b5;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .desc_text{
+    text-align: center;
+    color: #888888;
+    font-size: 14px;
+    font-weight: 300;
+    padding:  0 20px ;
+  }
+  
+  .img_grids{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px;
+  }
