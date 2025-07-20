@@ -7,6 +7,7 @@ import AboutPage from "./pages/aboutPage";
 import BlogDetailPage from "./pages/blogDetailPage";
 import ContactPage from "./pages/contactPage";
 import ShopPage from "./pages/shopPage";
+import ShopDetailPage from "./pages/shopDetailPage";
 
 export const router = createBrowserRouter([
     {
@@ -38,7 +39,12 @@ export const router = createBrowserRouter([
         {
           path:"shop",
           element:<ShopPage/>
+        }, 
+        {
+          path: "shop/:id",
+          element: <ShopDetailPage/>,
         }
+        
       ],
     },
   ]);

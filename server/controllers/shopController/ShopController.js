@@ -79,3 +79,20 @@ export const createShopItem = (req, res) => {
     }
   });
 };
+
+ export const getShopPageId = async (req, res) => {
+    try {
+      const { id } = req.params;
+  
+      const shopItem = await ShopSchema.findOne({ id: id });
+  
+      if (!shopItem) {
+        return res.status(404).json({ message: "Shop item not found" });
+      }
+  
+      return res.status(200).json(shopItem);
+    } catch (error) {
+      console.error("GET SHOP ITEM BY ID ERROR:", error);
+      return res.status(500).json({ message: "Server error", error: error.message });
+    }
+  };

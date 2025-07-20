@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.css'
+import { Link } from 'react-router-dom';
 
 const ShopCard = ({ popular }) => {
   const trimmedDescription = popular.description
@@ -14,11 +15,13 @@ const ShopCard = ({ popular }) => {
       <div className="popular_card relative">
             {popular.sale && <div className="onSale">SALE</div>}
             {!popular.inStock && <div className="inStock">OUT OF STOCK</div>}
+            <Link to={`/shop/${popular.id}`}>
             <img
                 src={`http://localhost:3000/${popular.image.replace(/\\/g, '/')}`}
                 alt={popular.name}
                 className="w-full h-[279px] object-cover"
             />
+            </Link>
             </div>
 
 
