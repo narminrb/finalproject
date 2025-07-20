@@ -1,11 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './styles.css'
 import first from '../../assets/first.webp'
 import second from '../../assets/second.webp'
 import third from '../../assets/third.webp'
+import ReviewsTab from '../ReviewsTab';
+import { getReviews } from '../../api/shopreview';
 
-const ShopTabs = () => {
+const ShopTabs = ({ productId }) => {
   const [activeTab, setActiveTab] = useState('description');
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(() => {
+    if (activeTab === 'reviews') {
+      getReviews(productId).then((data) => setReviews(data));
+    }
+  }, [activeTab, productId]);
+  
 
   return (
     <div className="tabs-container">
@@ -63,13 +73,16 @@ const ShopTabs = () => {
         {activeTab === 'additional' && (
           <p>This section shows additional product information.</p>
         )}
-        {activeTab === 'reviews' && (
-          <div>
-            <p>Leave a review below:</p>
-            <textarea placeholder="Write your review here..." rows={4}></textarea>
-            <button className="submit-review">Submit Review</button>
-          </div>
+       {activeTab === 'reviews' && (
+          <ReviewsTab
+            reviews={reviews}
+            onSubmit={(reviewData) => {
+              console.log('Submit review:', reviewData);
+              setReviews(prev => [...prev, reviewData]);
+            }}
+          />
         )}
+
       </div>
     </div>
   );

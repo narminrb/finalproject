@@ -60,9 +60,9 @@ const ShopDetailPage = () => {
        </div>
         </div>
       </div>
+      <ShopTabs productId={blog._id} />
 
-<ShopTabs/>
-<ShopSwiper/>
+      <ShopSwiper/>
 
     </div>
     </div>
