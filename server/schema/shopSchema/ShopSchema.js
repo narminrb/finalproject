@@ -63,7 +63,7 @@ const ShopSchema = new mongoose.Schema({
 });
 
 export default mongoose.model(
-    "ShopSchema", 
+    "Shop", 
     ShopSchema, 
     "ShopSchemas"
 );

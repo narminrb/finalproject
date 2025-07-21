@@ -1,60 +1,53 @@
-import ShopReviewSchema from "../../schema/shopSchema/ShopReviewSchema.js";
-import ShopSchema from "../../schema/shopSchema/ShopSchema.js";
+// controllers/reviewController.js
+import Review from "../../schema/shopSchema/ShopReviewSchema.js";
+import Shop from "../../schema/shopSchema/ShopSchema.js";
 
-const updateProductRating = async (productId) => {
-  const reviews = await ShopReviewSchema.find({ product: productId });
-  const avgRating =
-    reviews.reduce((sum, r) => sum + r.rating, 0) / (reviews.length || 1);
-
-  await ShopSchema.findByIdAndUpdate(productId, {
-    rating: avgRating.toFixed(1),
-    numReviews: reviews.length,
-  });
-};
-
-// POST /api/reviews
-export const addReview = async (req, res) => {
+export const createReview = async (req, res) => {
   try {
-    const { product, rating, comment } = req.body;
-    const user = req.user._id;
+    const { product, rating, comment, reviewerName, reviewerEmail } = req.body;
 
-    const existing = await ShopReviewSchema.findOne({ product, user });
-    if (existing) {
-      return res.status(400).json({ message: "You already reviewed this product." });
+    if (!product || !rating || !comment || !reviewerName) {
+      return res.status(400).json({ message: "Missing required fields" });
     }
 
-    const review = await ShopReviewSchema.create({ product, user, rating, comment });
-    await updateProductRating(product);
+    const foundProduct = await Shop.findById(product);
+    if (!foundProduct) {
+      return res.status(404).json({ message: "Product not found" });
+    }
+
+    const review = await Review.create({
+      product,
+      rating,
+      comment,
+      reviewerName,
+      reviewerEmail,
+    });
+
+    // Update product rating and review count
+    const reviews = await Review.find({ product });
+    const avgRating =
+      reviews.reduce((acc, r) => acc + r.rating, 0) / reviews.length;
+
+    foundProduct.rating = avgRating;
+    foundProduct.numReviews = reviews.length;
+    await foundProduct.save();
 
     res.status(201).json(review);
   } catch (error) {
-    res.status(500).json({ message: "Error creating review", error });
+    console.error("Create Review Error:", error);
+    res.status(500).json({ message: "Server Error" });
   }
 };
 
-// GET /api/reviews/:productId
-export const getProductReviews = async (req, res) => {
+export const getReviewsByProductId = async (req, res) => {
   try {
     const { productId } = req.params;
-    const reviews = await ShopReviewSchema.find({ product: productId }).populate("user", "name");
-    res.status(200).json(reviews);
+    const reviews = await Review.find({ product: productId }).sort({
+      createdAt: -1,
+    });
+    res.json(reviews);
   } catch (error) {
-    res.status(500).json({ message: "Error fetching reviews", error });
-  }
-};
-
-// DELETE /api/reviews/:reviewId
-export const deleteReview = async (req, res) => {
-  try {
-    const { reviewId } = req.params;
-    const review = await ShopReviewSchema.findById(reviewId);
-    if (!review) return res.status(404).json({ message: "Review not found" });
-
-    await ShopReviewSchema.findByIdAndDelete(reviewId);
-    await updateProductRating(review.product);
-
-    res.status(200).json({ message: "Review deleted" });
-  } catch (error) {
-    res.status(500).json({ message: "Error deleting review", error });
+    console.error("Get Reviews Error:", error);
+    res.status(500).json({ message: "Server Error" });
   }
 };

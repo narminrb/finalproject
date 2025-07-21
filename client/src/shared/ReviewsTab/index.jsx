@@ -1,27 +1,28 @@
 import React, { useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 
-const ReviewsTab = ({ onSubmit, reviews = [] }) => {
+const ReviewsTab = ({ productId, onSubmit, reviews = [] }) => {
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(null);
   const [comment, setComment] = useState('');
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [reviewerName, setReviewerName] = useState('');
+  const [reviewerEmail, setReviewerEmail] = useState('');
   const [remember, setRemember] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!rating || !comment || !name || !email) {
-      alert('Please fill in all required fields.');
+
+    if (!rating || !comment || !reviewerName) {
+      alert('Please fill in all required fields (rating, review, and name).');
       return;
     }
 
     const reviewData = {
+      product: productId,
       rating,
       comment,
-      name,
-      email,
-      remember,
+      reviewerName,
+      reviewerEmail: reviewerEmail || null,
     };
 
     onSubmit(reviewData);
@@ -30,8 +31,8 @@ const ReviewsTab = ({ onSubmit, reviews = [] }) => {
     setRating(0);
     setHover(null);
     setComment('');
-    setName('');
-    setEmail('');
+    setReviewerName('');
+    setReviewerEmail('');
     setRemember(false);
   };
 
@@ -72,20 +73,19 @@ const ReviewsTab = ({ onSubmit, reviews = [] }) => {
             <input
               type="text"
               className="w-full mt-1 border p-2 rounded-md"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={reviewerName}
+              onChange={(e) => setReviewerName(e.target.value)}
               required
             />
           </label>
 
           <label className="block font-semibold mt-4 mb-1">
-            Email *
+            Email (optional)
             <input
               type="email"
               className="w-full mt-1 border p-2 rounded-md"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
+              value={reviewerEmail}
+              onChange={(e) => setReviewerEmail(e.target.value)}
             />
           </label>
 
@@ -98,7 +98,7 @@ const ReviewsTab = ({ onSubmit, reviews = [] }) => {
               className="mr-2"
             />
             <label htmlFor="remember" className="text-sm">
-              Save my name, email, and website in this browser for the next time I comment.
+              Save my name and email in this browser for the next time I comment.
             </label>
           </div>
 
@@ -122,15 +122,13 @@ const ReviewsTab = ({ onSubmit, reviews = [] }) => {
                 <FaStar
                   key={s}
                   size={18}
-                  className={`${
-                    rev.rating >= s ? 'text-yellow-400' : 'text-gray-300'
-                  }`}
+                  className={`${rev.rating >= s ? 'text-yellow-400' : 'text-gray-300'}`}
                 />
               ))}
             </div>
             <p className="text-gray-700 mb-2">"{rev.comment}"</p>
             <p className="text-sm text-gray-500">
-              – {rev.name} ({rev.email})
+              – {rev.reviewerName} {rev.reviewerEmail ? `(${rev.reviewerEmail})` : ''}
             </p>
           </div>
         ))}

@@ -4,7 +4,7 @@ import first from '../../assets/first.webp'
 import second from '../../assets/second.webp'
 import third from '../../assets/third.webp'
 import ReviewsTab from '../ReviewsTab';
-import { getReviews } from '../../api/shopreview';
+import { getReviews, postReview } from '../../api/shopreview';
 
 const ShopTabs = ({ productId }) => {
   const [activeTab, setActiveTab] = useState('description');
@@ -75,12 +75,20 @@ const ShopTabs = ({ productId }) => {
         )}
        {activeTab === 'reviews' && (
           <ReviewsTab
-            reviews={reviews}
-            onSubmit={(reviewData) => {
-              console.log('Submit review:', reviewData);
-              setReviews(prev => [...prev, reviewData]);
-            }}
-          />
+          productId={productId}     
+          reviews={reviews}
+          onSubmit={async (reviewData) => {
+            try {
+              // Send to backend
+              const savedReview = await postReview(reviewData);
+              // Update local state with saved review from backend (with _id, timestamps, etc)
+              setReviews(prev => [savedReview, ...prev]);
+            } catch (error) {
+              alert('Failed to submit review: ' + error.message);
+            }
+          }}
+        />
+        
         )}
 
       </div>
