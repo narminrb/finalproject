@@ -134,16 +134,105 @@
 
   .shop-detail-desc{
     color: #555555;
-    font-size: 16px;
+    font-size: 17px;
+    font-family: 'Montserrat',sans-serif;
   }
 
-  .qty-control{
-    color: #222;
-  }
 
   .add-to-cart{
-    background-color: aqua;
+    background-color: #74a8b5;
+    border: 1px solid #74a8b5;
     color: #222;
-    padding: 10px 30px;
-    border-radius: 40px;
+    padding: 10px;
+    min-width: 140px;
+    margin-right: 0.4rem;
+    height: auto;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1;
+    font-size: 0.85rem;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    color: white;
+    height: 38px;
+  }
+
+  .add-to-cart-section{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .qty-control-minus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #222;
+    height: 38px;
+    border: 1px solid rgba(218, 218, 218, 1);
+    background-color: #fff;
+    cursor: pointer;
+    padding: 0 10px;
+    border-radius: 25px 0 0 25px;
+  }
+  
+  .qty-control-plus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #222;
+    height: 38px;
+    border: 1px solid rgba(218, 218, 218, 1);
+    background-color: #fff;
+    cursor: pointer;
+    padding: 0 10px;
+    border-radius: 0 25px 25px 0;
+  }
+  
+  .qty-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 38px;
+    border: 1px solid rgba(218, 218, 218, 1);
+    background-color: #fff;
+    padding: 0 10px;
+  }
+  .qty-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+    
+  .qty-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 38px;
+    border-top: 1px solid rgba(218, 218, 218, 1);
+    border-bottom: 1px solid rgba(218, 218, 218, 1);
+    background-color: #fff;
+    color: #222;
+    padding: 0 10px;
+    line-height: 1;            
+    font-size: 16px;            
+    vertical-align: middle;     
+  }
+  
+  
+  .shop-detail-desc-icons{
+    display: flex;
+    flex-direction: row;
+    color: #555555;
+    font-size: 17px;
+    gap: 5px;
   }

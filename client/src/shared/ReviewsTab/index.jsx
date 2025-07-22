@@ -94,7 +94,7 @@ const ReviewsTab = ({ productId, onSubmit, reviews = [] }) => {
             <p className='review-text'>Name *</p>
             <input
               type="text"
-              className="w-full p-2 input-border"
+              className="w-full p-2 input-border text-[#222]"
               value={reviewerName}
               onChange={(e) => setReviewerName(e.target.value)}
               required

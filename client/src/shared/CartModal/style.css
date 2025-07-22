@@ -1,0 +1,181 @@
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); 
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1000;
+  }
+  
+  /* drawer */
+  .cart-drawer {
+    background: #fff;
+    width: 400px;
+    height: 100vh;
+    padding: 20px;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    position: relative;
+  }
+  
+  .cart-close-floating {
+    position: absolute;
+    top: 15px;
+    right: 420px; 
+    background: #fff;
+    border: none;
+    font-size: 18px;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: #333;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    z-index: 1100;
+    font-weight: lighter;
+  }
+  
+  .cart-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .cart-item {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e1e1e1;
+    padding: 20px 0;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  
+  .cart-item-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .cart-item-img {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+  }
+  
+  .cart-item-text {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .cart-item-name {
+    font-family: "Amithen";
+    font-weight: 400;
+    line-height: 38px;
+    font-size: 18px;
+    color: black;
+  }
+  
+  .cart-item-price {
+    color: #333;
+    font-size: 0.9rem;
+  }
+  
+
+  .cart-total {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  
+  .cart-drawer {
+    position: relative;
+    background: #fff;
+    flex-direction: column;
+    width: 400px;
+    height: 100vh;
+    padding: 40px;
+    padding-bottom: 100px; 
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+  }
+
+  .cart-footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 400px;
+    background: #fff;
+    padding: 15px 20px;
+  }
+  
+  .cart-total {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  
+  .cart-checkout-btn {
+    width: 100%;
+    background: #74a8b5;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+  }
+  
+  .cart-checkout-btn:hover {
+    background: #333;
+  }
+  
+  .cart-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-top: 15px !important;
+    text-transform: uppercase;
+    color: #333;
+    font-size: 20px;
+  }
+
+  .small-price{
+    font-family: Amithen;
+    color: #74a8b5;
+  }
+
+  .cart-footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 400px;
+    background: #fff;
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .cart-subtotal-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .cart-subtotal-label {
+    font-weight: 500;
+  }
+  
+  .cart-subtotal-amount {
+    font-family: Amithen;
+    color: #74a8b5;
+  }
+  
