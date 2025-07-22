@@ -112,7 +112,7 @@ const Register = () => {
             placeholder="Name..."
             value={data.name}
             onChange={handleChange}
-            className="w-full mb-4 p-2 text-base sm:text-lg text-black"
+            className="w-full mb-4 p-2 text-base sm:text-lg text-black .input-regist"
             required
           />
           <input
@@ -121,7 +121,7 @@ const Register = () => {
             placeholder="Email..."
             value={data.email}
             onChange={handleChange}
-            className="w-full mb-4 p-2 text-base sm:text-lg text-black"
+            className="w-full mb-4 p-2 text-base sm:text-lg text-black .input-regist"
             required
           />
           <input
@@ -130,7 +130,7 @@ const Register = () => {
             placeholder="Password..."
             value={data.password}
             onChange={handleChange}
-            className="w-full mb-4 p-2 text-base sm:text-lg text-black"
+            className="w-full mb-4 p-2 text-base sm:text-lg text-black .input-regist"
             required
           />
           <button

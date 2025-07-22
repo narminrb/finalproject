@@ -90,7 +90,7 @@ const Login = () => {
             placeholder="Email..."
             value={data.email}
             onChange={handleChange}
-            className="w-full mb-4 p-2 text-base sm:text-lg text-black"
+            className="w-full mb-4 p-2 text-base sm:text-lg text-black .input-regist"
           />
           <input 
             type="password"
@@ -98,7 +98,7 @@ const Login = () => {
             placeholder="Password..."
             value={data.password}
             onChange={handleChange}
-            className="w-full mb-4 p-2 text-base sm:text-lg text-black"
+            className="w-full mb-4 p-2 text-base sm:text-lg text-black .input-regist"
           />
           <button 
             type="submit"
