@@ -79,9 +79,7 @@ const ShopTabs = ({ productId }) => {
           reviews={reviews}
           onSubmit={async (reviewData) => {
             try {
-              // Send to backend
               const savedReview = await postReview(reviewData);
-              // Update local state with saved review from backend (with _id, timestamps, etc)
               setReviews(prev => [savedReview, ...prev]);
             } catch (error) {
               alert('Failed to submit review: ' + error.message);

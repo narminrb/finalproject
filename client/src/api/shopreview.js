@@ -19,13 +19,13 @@ export const postReview = async (reviewData) => {
   });
 
   if (!res.ok) {
-    const text = await res.text(); // get raw response to see if it's HTML
+    const text = await res.text(); 
     let message;
     try {
       const json = JSON.parse(text);
       message = json.message || 'Failed to post review';
     } catch (err) {
-      message = `Server error: ${res.status}`; // fallback for HTML errors
+      message = `Server error: ${res.status}`; 
     }
     throw new Error(message);
   }
