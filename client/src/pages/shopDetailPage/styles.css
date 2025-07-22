@@ -136,3 +136,14 @@
     color: #555555;
     font-size: 16px;
   }
+
+  .qty-control{
+    color: #222;
+  }
+
+  .add-to-cart{
+    background-color: aqua;
+    color: #222;
+    padding: 10px 30px;
+    border-radius: 40px;
+  }

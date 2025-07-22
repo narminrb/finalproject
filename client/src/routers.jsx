@@ -8,6 +8,8 @@ import BlogDetailPage from "./pages/blogDetailPage";
 import ContactPage from "./pages/contactPage";
 import ShopPage from "./pages/shopPage";
 import ShopDetailPage from "./pages/shopDetailPage";
+import Register from "./pages/registerPage";
+import Login from "./pages/loginPage";
 
 export const router = createBrowserRouter([
     {
@@ -43,8 +45,17 @@ export const router = createBrowserRouter([
         {
           path: "shop/:id",
           element: <ShopDetailPage/>,
-        }
+        },
+        
         
       ],
+    },
+    { 
+      path: "register", 
+      element: <Register /> 
+    },
+    { 
+      path: "login", 
+      element: <Login /> 
     },
   ]);

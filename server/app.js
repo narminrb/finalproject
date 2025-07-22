@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
+dotenv.config();
 import ConnectDb from "./db/ConnectDb.js";
 import homeSliderRouter from "./routes/Home/homeHeaderSlider/HomeHeaderSlider.js";
 import homeCategoryRouter from "./routes/Home/homeCategory/HomeCategory.js";
@@ -15,7 +16,8 @@ import contactRouter from './routes/Contact/Contact.js'
 import contactElementsRouter from './routes/Contact/ContactElements.js'
 import shopRouter from './routes/Shop/Shop.js'
 import shopReviewRouter from './routes/Shop/ShopReview.js'
-// import cartRouter from './routes/Shop/Cart.js'
+import cartRouter from './routes/Shop/Cart.js'
+import authRouter from './routes/Auth/auth.js'
 
 dotenv.config();
 
@@ -50,7 +52,8 @@ app.use("/api/contacts",contactRouter)
 app.use("/api/contactelements",contactElementsRouter)
 app.use("/api/shop",shopRouter)
 app.use("/api/reviews",shopReviewRouter)
-// app.use("/api/cart",cartRouter)
+app.use("/api/cart",cartRouter)
+app.use("/api/auth", authRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

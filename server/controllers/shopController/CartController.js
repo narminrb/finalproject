@@ -44,3 +44,31 @@
 //     return res.status(500).json({ message: "Server error", error: err.message });
 //   }
 // };
+
+import Cart from "../../schema/shopSchema/CartSchema.js";
+
+// POST /api/cart/add
+export const addToCart = async (req, res) => {
+  const userId = req.userId;
+  const { productId, qty } = req.body;
+  try {
+    let cart = await Cart.findOne({ user: userId });
+    if (!cart) {
+      cart = await Cart.create({ user: userId, items: [] });
+    }
+    const existing = cart.items.find(i => i.product.toString() === productId);
+    if (existing) existing.qty += qty;
+    else cart.items.push({ product: productId, qty });
+    await cart.save();
+    res.json(cart);
+  } catch (err) {
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+// GET /api/cart
+export const getCart = async (req, res) => {
+  const userId = req.userId;
+  const cart = await Cart.findOne({ user: userId }).populate("items.product");
+  res.json(cart || { items: [] });
+};
