@@ -15,6 +15,7 @@ import contactRouter from './routes/Contact/Contact.js'
 import contactElementsRouter from './routes/Contact/ContactElements.js'
 import shopRouter from './routes/Shop/Shop.js'
 import shopReviewRouter from './routes/Shop/ShopReview.js'
+// import cartRouter from './routes/Shop/Cart.js'
 
 dotenv.config();
 
@@ -49,6 +50,7 @@ app.use("/api/contacts",contactRouter)
 app.use("/api/contactelements",contactElementsRouter)
 app.use("/api/shop",shopRouter)
 app.use("/api/reviews",shopReviewRouter)
+// app.use("/api/cart",cartRouter)
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

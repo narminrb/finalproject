@@ -43,7 +43,7 @@ const ReviewsTab = ({ productId, onSubmit, reviews = [] }) => {
         <h3 className="text-lg font-bold">Reviews</h3>
         {reviews.length === 0 && <p>No reviews yet.</p>}
         {reviews.map((rev, idx) => (
-          <div key={idx} className="border p-4 rounded shadow-sm">
+          <div key={idx} className="border p-4 shadow-sm">
             <div className="flex gap-1 mb-1">
               {[1, 2, 3, 4, 5].map((s) => (
                 <FaStar
