@@ -38,3 +38,40 @@
 // };
 
 // export default CartModal;
+import React from 'react';
+import { useQuery } from '@tanstack/react-query';
+import api from '../../api/axios';
+
+const CartModalContent = ({ onClose }) => {
+  const { data: cart, isLoading } = useQuery(['cart'], () => api.get('/cart').then(res => res.data));
+
+  if (isLoading) return <p>Loading cart...</p>;
+
+  const total = cart.items.reduce((sum, i) => sum + i.product.price * i.qty, 0);
+
+  return (
+    <div className="cart-modal">
+      <button className="close" onClick={onClose}>✖</button>
+      <h2>Your Cart</h2>
+      {cart.items.length ? (
+        <>
+          <ul>
+            {cart.items.map(i => (
+              <li key={i.product._id}>
+                <span>{i.product.name} × {i.qty}</span>
+                <span>${(i.product.price * i.qty).toFixed(2)}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="total">
+            Total: <strong>${total.toFixed(2)}</strong>
+          </div>
+          <button onClick={() => alert('Go to checkout')}>Checkout</button>
+        </>
+      ) : <p>Your cart is empty</p>}
+    </div>
+  );
+};
+
+export default CartModalContent;
+
