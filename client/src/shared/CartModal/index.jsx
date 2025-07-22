@@ -43,7 +43,11 @@ import { useQuery } from '@tanstack/react-query';
 import api from '../../api/axios';
 
 const CartModalContent = ({ onClose }) => {
-  const { data: cart, isLoading } = useQuery(['cart'], () => api.get('/cart').then(res => res.data));
+    const { data:cart, isLoading } = useQuery({
+        queryKey: ['cart'],
+        queryFn: () => api.get('/cart').then(res => res.data)
+      });
+      
 
   if (isLoading) return <p>Loading cart...</p>;
 
@@ -58,13 +62,13 @@ const CartModalContent = ({ onClose }) => {
           <ul>
             {cart.items.map(i => (
               <li key={i.product._id}>
-                <span>{i.product.name} × {i.qty}</span>
+                <span className='text-black'>{i.product.name} × {i.qty}</span>
                 <span>${(i.product.price * i.qty).toFixed(2)}</span>
               </li>
             ))}
           </ul>
           <div className="total">
-            Total: <strong>${total.toFixed(2)}</strong>
+            Total: <strong className='text-black'>${total.toFixed(2)}</strong>
           </div>
           <button onClick={() => alert('Go to checkout')}>Checkout</button>
         </>

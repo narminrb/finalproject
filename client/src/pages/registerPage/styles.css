@@ -1,6 +1,6 @@
 
 
-.container{
+.container-login{
     -webkit-backdrop-filter: blur(20px);
     border-radius: 20px;
     position: relative;
@@ -9,7 +9,7 @@
     border-left: 5px solid rgba(255, 255, 255, 0.3);
 }
 
-.container:hover{
+.container-login:hover{
     transform-origin: 20px;
     transition: cubic-bezier(0.215, 0.610, 0.355, 1);
     transition: ease-in-out;
