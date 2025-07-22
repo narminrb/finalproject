@@ -81,13 +81,30 @@ export const logout = (req, res) => {
   res.json({ message: "Logged out" });
 };
 
-export const verify = (req, res) => {
-  const token = req.cookies.token;
-  if (!token) return res.status(401).json({ message: "Unauthorized" });
+// export const verify = (req, res) => {
+//   const token = req.cookies.token;
+//   if (!token) return res.status(401).json({ message: "Unauthorized" });
 
-  jwt.verify(token, JWT_SECRET, (err, decoded) => {
-    if (err) return res.status(401).json({ message: "Invalid token" });
-    res.json({ id: decoded.id });
-  });
-};
+//   jwt.verify(token, JWT_SECRET, (err, decoded) => {
+//     if (err) return res.status(401).json({ message: "Invalid token" });
+//     res.json({ id: decoded.id });
+//   });
+// };
+
+export const verify = (req, res) => {
+    const token = req.cookies.token;
+    if (!token) return res.status(401).json({ message: "Unauthorized" });
+  
+    const secret = process.env.JWT_SECRET;  // read it fresh here
+    if (!secret) {
+      console.error("❌ JWT_SECRET is missing");
+      return res.status(500).json({ message: "Server error: missing JWT secret" });
+    }
+  
+    jwt.verify(token, secret, (err, decoded) => {
+      if (err) return res.status(401).json({ message: "Invalid token" });
+      res.json({ id: decoded.id });
+    });
+  };
+  
 

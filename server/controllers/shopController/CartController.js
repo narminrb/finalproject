@@ -66,9 +66,14 @@ export const addToCart = async (req, res) => {
   }
 };
 
-// GET /api/cart
 export const getCart = async (req, res) => {
-  const userId = req.userId;
-  const cart = await Cart.findOne({ user: userId }).populate("items.product");
-  res.json(cart || { items: [] });
-};
+    try {
+      const userId = req.userId;
+      const cart = await Cart.findOne({ user: userId }).populate("items.product");
+      if (!cart) return res.json({ items: [] });
+      return res.json(cart);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Server error" });
+    }
+  };

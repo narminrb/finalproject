@@ -6,7 +6,7 @@ import Brands from '../../components/Brands'
 
 const AboutPage = () => {
   return (
-    <div className='home-categories-bg '>
+    <div className='home-categories-bg'>
         <AboutPageComponent/>
         <AboutOffers/>
         <Brands/>

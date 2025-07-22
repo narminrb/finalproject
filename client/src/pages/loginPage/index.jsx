@@ -72,7 +72,7 @@ const Login = () => {
       <div className="bottom-pink w-[280px] h-[280px] rounded-full absolute top-[50%] left-[12%] lg:left-[30%]"></div>
       <div className="top-orange w-[300px] h-[300px] rounded-full absolute top-[5%] left-[5%] md:left-[23%] lg:left-[30%]"></div>
       
-      <div className="container w-[350px] sm:w-[350px] m-auto text-center p-8 text-white z-10" style={{ backdropFilter: 'blur(20px)' }}>
+      <div className="container-login w-[350px] sm:w-[350px] m-auto text-center p-8 text-white z-10" style={{ backdropFilter: 'blur(20px)' }}>
             <img 
         src="https://upload.wikimedia.org/wikipedia/commons/6/67/User_Avatar.png" 
         alt="user avatar"
