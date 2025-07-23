@@ -212,7 +212,7 @@
 import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import './styles.css';
-import { getShops } from '../../api/shop'; // Make sure these work correctly
+import { getShops } from '../../api/shop'; 
 import ShopCard from '../../shared/ShopCard';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
@@ -223,7 +223,6 @@ const ShopComponent = () => {
   const [showFilters, setShowFilters] = useState(false);
   const [priceRange, setPriceRange] = useState([250, 950]);
 
-  // Change from single string to array for multiple painters
   const [selectedPainters, setSelectedPainters] = useState([]);
 
   const [gridCols, setGridCols] = useState(3);
@@ -247,7 +246,6 @@ const ShopComponent = () => {
     return categoriesData?.categories?.find((cat) => cat._id === id)?.category || 'Unknown';
   };
 
-  // Function to toggle painter selection in array
   const togglePainter = (painterName) => {
     if (selectedPainters.includes(painterName)) {
       setSelectedPainters(selectedPainters.filter((p) => p !== painterName));
@@ -256,13 +254,11 @@ const ShopComponent = () => {
     }
   };
 
-  // Clear all selected painters
   const clearAllPainters = () => setSelectedPainters([]);
 
   const filteredShops = shopData?.data?.filter((shop) => {
     const inPrice = shop.price >= priceRange[0] && shop.price <= priceRange[1];
 
-    // Filter by multiple painters if any selected, else true
     const byPainter =
       selectedPainters.length > 0 ? selectedPainters.includes(shop.painter) : true;
 
@@ -278,19 +274,15 @@ const ShopComponent = () => {
       </div>
 
       <div className="container max-w-screen-xl mx-auto px-3">
-        {/* FILTER & SORT ROW */}
         <div className="flex items-center justify-between px-4 py-2 mb-6 text-black">
-          {/* Left side group: Grid toggle + Filters */}
           <div className="flex items-center gap-6">
-            {/* Filter toggle */}
             <div
               className="flex items-center gap-2 cursor-pointer select-none"
               onClick={() => setShowFilters(!showFilters)}
             >
-              <i className="ri-equalizer-line text-xl"></i>
-              <span className="font-medium">Filters</span>
+              <i className="ri-equalizer-line filter-icon"></i>
+              <span className="filter">Filters</span>
             </div>
-            {/* Grid toggle buttons */}
             <div className="flex gap-3">
               <button
                 onClick={() => setGridCols(3)}
@@ -314,14 +306,12 @@ const ShopComponent = () => {
               </button>
             </div>
           </div>
-
-          {/* Right side: Pagination "Show" dropdown */}
-          <div>
-            <span className="mr-2">Show</span>
+          <div className='flex justify-center'>
+            <span className="mr-2 text-[#888] text-[16px]">Show</span>
             <select
               value={showCount}
               onChange={(e) => setShowCount(Number(e.target.value))}
-              className="border rounded px-2 py-1"
+              className="pagenit"
             >
               {[9, 12, 24, 36, 'All'].map((n) => (
                 <option key={n} value={n}>
@@ -332,12 +322,10 @@ const ShopComponent = () => {
           </div>
         </div>
 
-        {/* FILTER PANEL */}
         {showFilters && (
-          <div className="bg-gray-50 p-4 rounded shadow mb-6 space-y-4 grid grid-cols-3 gap-6">
-            {/* Price Filter */}
+          <div className=" p-4 rounded mb-6 space-y-4 grid grid-cols-3 gap-6">
             <div>
-              <h4 className="font-semibold mb-2">Filter By Price</h4>
+              <h4 className="pricename">Filter By Price</h4>
               <div className="relative">
                 <Slider
                   range
@@ -345,14 +333,16 @@ const ShopComponent = () => {
                   max={950}
                   value={priceRange}
                   onChange={setPriceRange}
+                  trackStyle={[{ backgroundColor: '#74A8B5' }]}
+                  handleStyle={[{ borderColor: '#74A8B5', backgroundColor: '#74A8B5' }]}
                 />
                 <div className="flex justify-between items-center mt-2">
-                  <div className="text-sm text-gray-600">
+                  <div className="text-[16px] text-[#555555]">
                     Price: ${priceRange[0]} - ${priceRange[1]}
                   </div>
                   <button
                     onClick={() => setPriceRange([250, 950])}
-                    className="text-blue-600 text-sm underline ml-4"
+                    className="text-gray-600 text-sm underline ml-4"
                   >
                     Reset
                   </button>
@@ -360,13 +350,13 @@ const ShopComponent = () => {
               </div>
             </div>
 
-            {/* Painter Filter */}
             <div>
-              <h4 className="font-semibold mb-2 text-black">Painter</h4>
+              <h4 className="pricename">Painter</h4>
               {painters.map((painterName) => (
-                <div key={painterName} className="flex items-center gap-2 text-black">
+                <div key={painterName} className="flex items-center gap-2 text-[16px] text-[#888]">
                   <input
                     type="checkbox"
+                    className='check'
                     checked={selectedPainters.includes(painterName)}
                     onChange={() => togglePainter(painterName)}
                     id={`painter-${painterName}`}
@@ -375,16 +365,14 @@ const ShopComponent = () => {
                 </div>
               ))}
             </div>
-
-            {/* Selected painters & Clear All */}
             <div>
-              <h4 className="font-semibold mb-2 text-black">Selected Painters</h4>
+              <h4 className="pricename">Selected Painters</h4>
               <div className="flex flex-wrap gap-2 items-center">
                 {selectedPainters.length > 0 ? (
                   <>
                     <button
                       onClick={clearAllPainters}
-                      className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+                      className="clear text-[#222] px-3 py-1  hover:bg-red-600"
                       type="button"
                     >
                       Clear All
@@ -393,16 +381,16 @@ const ShopComponent = () => {
                       <button
                         key={painter}
                         onClick={() => togglePainter(painter)}
-                        className="bg-gray-200 px-3 py-1 rounded flex items-center gap-1 hover:bg-gray-300"
+                        className="painterbtn"
                         type="button"
                       >
                         <span>{painter}</span>
-                        <span className="cursor-pointer text-red-600 font-bold">×</span>
+                        <span className="cursor-pointer text-[#222] ml-1">×</span>
                       </button>
                     ))}
                   </>
                 ) : (
-                  <p className="text-gray-500">No painters selected</p>
+                  <p className="text-gray-500"></p>
                 )}
               </div>
             </div>
@@ -410,7 +398,6 @@ const ShopComponent = () => {
         )}
       </div>
 
-      {/* SHOP GRID */}
       <div className="container max-w-screen-xl mx-auto px-3">
         <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-${gridCols} gap-6`}>
           {filteredShops
