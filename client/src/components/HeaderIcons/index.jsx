@@ -1,12 +1,41 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import SearchModal from "../../shared/SearchModal";
 
 const HeaderIcons = () => {
   const [wishlistCount, setWishlistCount] = useState(0);
   const [cartCount, setCartCount] = useState(0);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const navigate = useNavigate();
   const dropdownRef = useRef(null);
+
+  const [categoriesData, setCategoriesData] = useState([]);
+  const [productsData, setProductsData] = useState([]);
+  
+  // fetch categories
+  useEffect(() => {
+    fetch("http://localhost:3000/api/homecategory")
+      .then(res => res.json())
+      .then(data => {
+        // data.categories is the array
+        setCategoriesData(data.categories);
+      })
+      .catch(err => console.error("Categories fetch error:", err));
+  }, []);
+  
+  // fetch products
+  useEffect(() => {
+    fetch("http://localhost:3000/api/shop")
+      .then(res => res.json())
+      .then(data => {
+        console.log("Shop data:", data);
+        setProductsData(data.data);
+      })
+      .catch(err => console.error("Shop fetch error:", err));
+  }, []);
+  
+
 
   const addToWishlist = () => setWishlistCount((prev) => prev + 1);
   const addToCart = () => setCartCount((prev) => prev + 1);
@@ -24,9 +53,23 @@ const HeaderIcons = () => {
   return (
     <div className="flex items-center gap-6 text-white font-extralight text-2xl relative">
 
-      <button className="hover:text-[#74a8b5] transition">
+      {/* <button className="hover:text-[#74a8b5] transition">
         <i className="ri-search-line"></i>
-      </button>
+      </button> */}
+      <button
+            onClick={() => setIsSearchOpen(true)}
+            className="hover:text-[#74a8b5] transition"
+          >
+            <i className="ri-search-line"></i>
+          </button>
+
+          {isSearchOpen && (
+            <SearchModal
+              onClose={() => setIsSearchOpen(false)}
+              categories={categoriesData}   // pass your categories
+              products={productsData}       // pass your products
+            />
+          )}
 
       <div className="relative" ref={dropdownRef}>
         <button
