@@ -1,5 +1,5 @@
 import React from 'react';
-import './wishlist.css'; // 👈 create this CSS file or add to your styles
+import './wishlist.css'; 
 
 const WishlistSidebar = ({ wishlist, onClose }) => {
   return (
