@@ -14,6 +14,7 @@
     "@tanstack/react-query": "^5.83.0",
     "axios": "^1.10.0",
     "formik": "^2.4.6",
+    "framer-motion": "^12.23.7",
     "i18next": "^25.3.2",
     "js-cookie": "^3.0.5",
     "rc-slider": "^11.1.8",
