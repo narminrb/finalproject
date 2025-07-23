@@ -118,6 +118,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import './styles.css'
 
 const SearchModal = ({ onClose, categories, products }) => {
   const [query, setQuery] = useState("");
@@ -143,7 +144,6 @@ const SearchModal = ({ onClose, categories, products }) => {
         style={{ height: query ? "100vh" : "600px" }}
         className="fixed top-0 left-0 w-full bg-white z-[1000] shadow-lg overflow-y-auto"
       >
-        {/* Close button */}
         <button
           onClick={onClose}
           className="absolute top-4 right-6 text-3xl text-gray-700 hover:text-black"
@@ -152,37 +152,33 @@ const SearchModal = ({ onClose, categories, products }) => {
         </button>
 
         <div className="flex flex-col items-center mt-16 px-4">
-          <h2 className="text-3xl font-semibold mb-6">What are you looking for?</h2>
+          <h2 className="searchname">What are you looking for?</h2>
 
-          {/* Search input */}
           <input
             type="text"
-            placeholder="Search..."
-            className="border-b-2 border-gray-300 focus:outline-none focus:border-[#74a8b5] text-xl w-1/2 text-center mb-6 text-black placeholder-gray-400"
+            placeholder="Search for..."
+            className="searchit  focus:outline-none focus:border-[#74a8b5]  w-1/2 mb-6 text-black placeholder-gray-200"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
-
-          {/* Trending searches */}
-          <div className="mb-8">
-            <h3 className="text-lg font-medium mb-3">Trending Searches:</h3>
-            <div className="flex gap-3 flex-wrap justify-center">
-              {trending.map((item) => (
+                    <div className="mb-8 flex justify-center items-center gap-4">
+            <h3 className="text-[16px] text-[#222] uppercase">Trending Searches:</h3>
+            <div className="flex gap-2">
+                {trending.map((item) => (
                 <button
-                  key={item}
-                  onClick={() => setQuery(item)}
-                  className="px-3 py-1 border rounded-full hover:bg-[#74a8b5] hover:text-white transition"
+                    key={item}
+                    onClick={() => setQuery(item)}
+                    className="px-3 py-1 hover:bg-[#74a8b5] hover:text-white transition trendbtn"
                 >
-                  {item}
+                    {item}
                 </button>
-              ))}
+                ))}
             </div>
-          </div>
+            </div>
 
-          {/* Show categories only if no search query */}
           {!query && (
             <div className="w-full max-w-5xl">
-              <h3 className="text-xl font-semibold mb-4">Popular Categories</h3>
+              <h3 className="searchname my-8">Popular Categories</h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
                 {categoryCounts.map((cat) => (
                   <div
@@ -192,32 +188,31 @@ const SearchModal = ({ onClose, categories, products }) => {
                     <img
                       src={`http://localhost:3000/${cat.image.replace(/\\/g, "/")}`}
                       alt={cat.category}
-                      className="w-24 h-24 object-cover rounded-lg shadow"
+                      className="w-38 h-24 object-cover shadow"
                     />
-                    <p className="mt-2 font-medium">{cat.category}</p>
+                    <p className="categname">{cat.category}</p>
                     <p className="text-sm text-gray-500">{cat.count} products</p>
                   </div>
                 ))}
               </div>
             </div>
           )}
-
-          {/* Show products only if there is a search query */}
           {query && (
-            <div className="w-full max-w-5xl mt-10">
+            <div className="w-full max-w-5xl mt-3">
               <h3 className="text-xl font-semibold mb-4">
                 Results for "{query}"
               </h3>
               {filtered.length > 0 ? (
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                   {filtered.map((p) => (
-                    <div key={p._id} className="flex flex-col items-center">
+                    <div key={p._id} className="flex flex-col">
                       <img
                         src={`http://localhost:3000/${p.image.replace(/\\/g, "/")}`}
                         alt={p.name}
-                        className="w-32 h-32 object-cover rounded-lg shadow"
+                        className="w-50 h-35 object-cover shadow"
                       />
-                      <p className="mt-2 font-medium text-black">{p.name}</p>
+                      <p className="productname">{p.name}</p>
+                      <p className="productprice">${p.price}</p>
                     </div>
                   ))}
                 </div>
