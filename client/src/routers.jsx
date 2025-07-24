@@ -14,6 +14,7 @@ import PrivateRoute from "./pages/admin/component/ProtectedRoute";
 import AdminLayout from "./pages/admin/AdminLayout";
 import AdminPage from "./pages/admin/AdminPage";
 import AdminBlog from "./pages/admin/AdminBlog";
+import AdminShop from "./pages/admin/AdminShop";
 
 export const router = createBrowserRouter([
     {
@@ -73,7 +74,7 @@ export const router = createBrowserRouter([
         { index: true, element: <AdminPage /> },
         // { path: "about", element: <AdminAbout /> },
         { path: "blog", element: <AdminBlog /> },
-        // { path: "ksm", element: <AdminKsm /> },
+        { path: "shop", element: <AdminShop /> },
         // { path: "news", element: <AdminNews /> },
         // { path: "contact", element: <AdminContact /> },
         // { path: "career", element: <AdminCareer /> },
