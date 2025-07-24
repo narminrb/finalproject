@@ -80,23 +80,6 @@ export const createShopItem = (req, res) => {
   });
 };
 
-//  export const getShopPageId = async (req, res) => {
-//     try {
-//       const { id } = req.params;
-  
-//       const shopItem = await ShopSchema.findOne({ id: id });
-  
-//       if (!shopItem) {
-//         return res.status(404).json({ message: "Shop item not found" });
-//       }
-  
-//       return res.status(200).json(shopItem);
-//     } catch (error) {
-//       console.error("GET SHOP ITEM BY ID ERROR:", error);
-//       return res.status(500).json({ message: "Server error", error: error.message });
-//     }
-//   };
-
 export const getShopPageId = async (req, res) => {
   try {
     const { id } = req.params;
@@ -110,6 +93,84 @@ export const getShopPageId = async (req, res) => {
     return res.status(200).json(shopItem);
   } catch (error) {
     console.error("GET SHOP ITEM BY ID ERROR:", error);
+    return res.status(500).json({ message: "Server error", error: error.message });
+  }
+};
+
+
+// ✅ UPDATE shop item
+export const updateShopItem = (req, res) => {
+  upload.single("image")(req, res, async (err) => {
+    if (err) {
+      return res
+        .status(500)
+        .json({ message: "Failed to upload image", error: err.message });
+    }
+
+    const { id } = req.params;
+    const {
+      name,
+      description,
+      price,
+      discountPrice,
+      painter,
+      size,
+      category,
+      inStock,
+      sale,
+    } = req.body;
+
+    try {
+      // Prepare fields to update
+      const updateData = {
+        name,
+        description,
+        price,
+        painter,
+        size,
+        category,
+        inStock: inStock === "true" || inStock === true,
+        sale: sale === "true" || sale === true,
+      };
+
+      if (discountPrice !== undefined) updateData.discountPrice = discountPrice;
+      if (req.file) updateData.image = req.file.path;
+
+      // update by your custom `id` field
+      const updatedItem = await ShopSchema.findOneAndUpdate(
+        { id },
+        updateData,
+        { new: true }
+      );
+
+      if (!updatedItem) {
+        return res.status(404).json({ message: "Shop item not found" });
+      }
+
+      return res
+        .status(200)
+        .json({ message: "Shop item updated successfully", data: updatedItem });
+    } catch (error) {
+      console.error("UPDATE SHOP ITEM ERROR:", error);
+      return res.status(500).json({ message: "Server error", error: error.message });
+    }
+  });
+};
+// ✅ DELETE shop item
+export const deleteShopItem = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // find and delete by your custom `id` field
+    const deletedItem = await ShopSchema.findOneAndDelete({ id });
+
+    if (!deletedItem) {
+      return res.status(404).json({ message: "Shop item not found" });
+    }
+
+    return res.status(200).json({ message: "Shop item deleted successfully" });
+  } catch (error) {
+    console.error("DELETE SHOP ITEM ERROR:", error);
     return res.status(500).json({ message: "Server error", error: error.message });
   }
 };
