@@ -91,4 +91,77 @@ export const createBlogPage = (req, res) => {
       return res.status(500).json({ message: "Server error", error: error.message });
     }
   };
+
+  export const deleteBlog = async (req, res) => {
+    try {
+      const { id } = req.params;
+      const deleted = await BlogPageSchema.findOneAndDelete({ id }); // using your custom uuid id
+      if (!deleted) {
+        return res.status(404).json({ message: "Blog item not found" });
+      }
+      return res.status(200).json({ message: "Blog item deleted successfully" });
+    } catch (error) {
+      console.error("DELETE BLOG ERROR:", error);
+      return res.status(500).json({ message: "Server error", error: error.message });
+    }
+  };
+  
+  // UPDATE BLOG
+  export const updateBlog = (req, res) => {
+    upload.fields([
+      { name: "imagefirst", maxCount: 1 },
+      { name: "imagesecond", maxCount: 1 },
+      { name: "imagethird", maxCount: 1 },
+    ])(req, res, async (err) => {
+      if (err) {
+        return res.status(500).json({ message: "Failed to upload image(s)", error: err.message });
+      }
+  
+      const { id } = req.params;
+      const {
+        name,
+        descfirst,
+        descsecond,
+        descthird,
+        views,
+        date,
+      } = req.body;
+  
+      const imagefirst = req.files?.imagefirst?.[0]?.path;
+      const imagesecond = req.files?.imagesecond?.[0]?.path;
+      const imagethird = req.files?.imagethird?.[0]?.path;
+  
+      try {
+        const updateFields = {
+          name,
+          descfirst,
+          descsecond,
+          descthird,
+          views: Number(views),
+        };
+        if (date) updateFields.date = date;
+        if (imagefirst) updateFields.imagefirst = imagefirst;
+        if (imagesecond) updateFields.imagesecond = imagesecond;
+        if (imagethird) updateFields.imagethird = imagethird;
+  
+        const updated = await BlogPageSchema.findOneAndUpdate(
+          { id },
+          { $set: updateFields },
+          { new: true }
+        );
+  
+        if (!updated) {
+          return res.status(404).json({ message: "Blog item not found" });
+        }
+  
+        return res.status(200).json({
+          message: "Blog item updated successfully",
+          data: updated,
+        });
+      } catch (error) {
+        console.error("UPDATE BLOG ERROR:", error);
+        return res.status(500).json({ message: "Server error", error: error.message });
+      }
+    });
+  };
   

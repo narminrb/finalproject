@@ -10,6 +10,10 @@ import ShopPage from "./pages/shopPage";
 import ShopDetailPage from "./pages/shopDetailPage";
 import Register from "./pages/registerPage";
 import Login from "./pages/loginPage";
+import PrivateRoute from "./pages/admin/component/ProtectedRoute";
+import AdminLayout from "./pages/admin/AdminLayout";
+import AdminPage from "./pages/admin/AdminPage";
+import AdminBlog from "./pages/admin/AdminBlog";
 
 export const router = createBrowserRouter([
     {
@@ -57,5 +61,26 @@ export const router = createBrowserRouter([
     { 
       path: "login", 
       element: <Login /> 
+    },
+    {
+      path: "/admin",
+      element: (
+        <PrivateRoute>
+          <AdminLayout />
+        </PrivateRoute>
+      ),
+      children: [
+        { index: true, element: <AdminPage /> },
+        // { path: "about", element: <AdminAbout /> },
+        { path: "blog", element: <AdminBlog /> },
+        // { path: "ksm", element: <AdminKsm /> },
+        // { path: "news", element: <AdminNews /> },
+        // { path: "contact", element: <AdminContact /> },
+        // { path: "career", element: <AdminCareer /> },
+        // { path: "services", element: <AdminService /> },
+        // { path: "profile", element: <AdminProfile /> },
+        // { path: "reset-password", element: <AdminResetPassword /> },
+        // { path: "reset-email", element: <ResetEmailPage /> },
+      ],
     },
   ]);
