@@ -26,7 +26,7 @@ const HomeShop = () => {
   return (
     <div className="home-categories-bg bg-cover bg-center bg-no-repeat py-20">
       <div className="home_bgg">
-        <h2 className="popular_title">Popular items</h2>
+        <h2 className="popular_title">Our Shop</h2>
       </div>
       <div className="container max-w-screen-xl mx-auto my-10 px-3">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">

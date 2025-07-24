@@ -7,4 +7,5 @@ const router = Router();
 router.get("/", getBlog);
 router.post("/create", createBlog);
 
+
 export default router;
