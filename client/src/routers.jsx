@@ -16,6 +16,7 @@ import AdminPage from "./pages/admin/AdminPage";
 import AdminBlog from "./pages/admin/AdminBlog";
 import AdminShop from "./pages/admin/AdminShop";
 import AdminAbout from "./pages/admin/AdminAbout";
+import AdminContact from "./pages/admin/AdminContact";
 
 export const router = createBrowserRouter([
     {
@@ -77,7 +78,7 @@ export const router = createBrowserRouter([
         { path: "blog", element: <AdminBlog /> },
         { path: "shop", element: <AdminShop /> },
         // { path: "news", element: <AdminNews /> },
-        // { path: "contact", element: <AdminContact /> },
+        { path: "contactus", element: <AdminContact /> },
         // { path: "career", element: <AdminCareer /> },
         // { path: "services", element: <AdminService /> },
         // { path: "profile", element: <AdminProfile /> },

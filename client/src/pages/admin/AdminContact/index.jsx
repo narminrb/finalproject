@@ -1,14 +1,10 @@
 import React from 'react'
-import AdminContacts from '../shared/AdminContacts'
-import AdminContactMessages from '../shared/AdminContactMessages'
-import AdminSocial from '../shared/AdminSocial'
+import AdminContactElements from '../shared/AdminContactElements'
 
 const AdminContact = () => {
   return (
     <div>
-        <AdminContacts/>
-        <AdminSocial/>
-        <AdminContactMessages/>
+        <AdminContactElements/>
     </div>
   )
 }
