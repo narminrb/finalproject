@@ -15,6 +15,7 @@ import AdminLayout from "./pages/admin/AdminLayout";
 import AdminPage from "./pages/admin/AdminPage";
 import AdminBlog from "./pages/admin/AdminBlog";
 import AdminShop from "./pages/admin/AdminShop";
+import AdminAbout from "./pages/admin/AdminAbout";
 
 export const router = createBrowserRouter([
     {
@@ -72,7 +73,7 @@ export const router = createBrowserRouter([
       ),
       children: [
         { index: true, element: <AdminPage /> },
-        // { path: "about", element: <AdminAbout /> },
+        { path: "aboutus", element: <AdminAbout /> },
         { path: "blog", element: <AdminBlog /> },
         { path: "shop", element: <AdminShop /> },
         // { path: "news", element: <AdminNews /> },
