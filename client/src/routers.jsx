@@ -77,13 +77,7 @@ export const router = createBrowserRouter([
         { path: "aboutus", element: <AdminAbout /> },
         { path: "blog", element: <AdminBlog /> },
         { path: "shop", element: <AdminShop /> },
-        // { path: "news", element: <AdminNews /> },
-        { path: "contactus", element: <AdminContact /> },
-        // { path: "career", element: <AdminCareer /> },
-        // { path: "services", element: <AdminService /> },
-        // { path: "profile", element: <AdminProfile /> },
-        // { path: "reset-password", element: <AdminResetPassword /> },
-        // { path: "reset-email", element: <ResetEmailPage /> },
+        { path: "contactus", element: <AdminContact /> }
       ],
     },
   ]);
