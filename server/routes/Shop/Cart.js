@@ -1,33 +1,15 @@
-// import express from 'express';
-// import { addToCart, getCart } from '../../controllers/shopController/CartController';
-
-
-// const router = express.Router();
-
-// router.post('/add', addToCart);
-// router.get('/:userId', getCart);
-
-// export default router;
-// import express from 'express';
-// import { addToCart, getCart } from '../../controllers/shopController/CartController.js';
-
-// const router = express.Router();
-
-// // Protect these routes so only logged-in users can add/get cart
-// router.post('/add', addToCart);
-// router.get('/:userId', getCart);
-
-// export default router;
-
 import express from 'express';
 
 import authMiddleware from '../../middleware/auth.js'
-import { addToCart, getCart } from '../../controllers/shopController/CartController.js';
+import { addToCart, getCart, removeFromCart, updateCartItemQty } from '../../controllers/shopController/CartController.js';
 
 const router = express.Router();
 
 router.post('/add', authMiddleware, addToCart); 
-router.get('/', authMiddleware, getCart); // protect this route
+router.get('/', authMiddleware, getCart); 
+router.delete('/:productId', authMiddleware, removeFromCart);
+router.put('/update', authMiddleware, updateCartItemQty);
+
 
 export default router;
 
