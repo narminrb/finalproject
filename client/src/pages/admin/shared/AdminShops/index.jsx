@@ -369,7 +369,7 @@ const AdminShops = () => {
                       className="w-16 h-16 object-cover rounded"
                     />
                     <div>
-                      <p className="text-black font-bold">{shop.name}</p>
+                      <p className="text-black">{shop.name}</p>
                       <p className="text-sm">{shop.price} USD</p>
                     </div>
                   </div>

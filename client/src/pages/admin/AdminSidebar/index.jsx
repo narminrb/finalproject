@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './style.module.scss';
+
 // import { logout } from '@/http/auth';
 // import { jwtDecode } from 'jwt-decode';
 
@@ -113,6 +114,11 @@ const AdminSidebar = ({ isMobile = false, onClose = () => {} }) => {
                 Drawing
               </NavLink>
             </nav>
+            <div className={clsx(styles.logoedit)}>
+              <div className={clsx(styles.logo)}>
+              <img src="https://xstore.b-cdn.net/demos/2/artmaxy/wp-content/uploads/sites/23/2019/06/logo-footer.png" alt="" />
+              </div>
+            </div>
 
             {/* If you want a logout button later, you can add it back:
             <div

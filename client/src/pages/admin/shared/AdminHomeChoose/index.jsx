@@ -600,7 +600,7 @@ const AdminHomePopular = () => {
                       className="w-16 h-16 object-cover rounded"
                     />
                     <div>
-                      <p className="text-black font-bold">{card.name}</p>
+                      <p className="text-black">{card.name}</p>
                       <p className="text-sm">{card.price} AZN</p>
                     </div>
                   </div>

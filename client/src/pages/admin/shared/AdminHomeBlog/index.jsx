@@ -376,7 +376,7 @@ const AdminHomeBlog = () => {
                       className="w-16 h-16 object-cover rounded"
                     />
                     <div>
-                      <p className="text-black font-bold">{blog.name}</p>
+                      <p className="text-black">{blog.name}</p>
                       <p className="text-sm">{blog.views} views</p>
                     </div>
                   </div>
