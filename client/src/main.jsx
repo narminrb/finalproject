@@ -5,6 +5,7 @@ import ReactDOM from "react-dom/client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import './index.css'
 import 'remixicon/fonts/remixicon.css'
+import './i18n.js'
 
 const queryClient = new QueryClient();
 
