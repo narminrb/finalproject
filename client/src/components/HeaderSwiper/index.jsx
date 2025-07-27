@@ -34,13 +34,19 @@ const HeaderSwiper = () => {
             className="w-full h-full object-cover"
           />
 
-          <div className="absolute inset-0 flex flex-col justify-center items-center text-white px-6 text-center">
+          {/* <div className="absolute inset-0 flex flex-col justify-center items-center text-white px-6 text-center">
             <h2 className='header_swiper_name'>{slide.name}</h2>
             <p className="mb-6 max-w-4xl">{slide.description}</p>
             <div className="btn uppercase">
               Learn More
             </div>
-          </div>
+          </div> */}
+          <div className="absolute inset-0 flex flex-col justify-center items-center text-white px-6 text-center">
+  <h2 className="header_swiper_name fade-in"> {slide.name} </h2>
+  <p className="mb-6 max-w-4xl slide-down"> {slide.description} </p>
+  <div className="btn uppercase fade-in delay"> Learn More </div>
+</div>
+
         </div>
       </SwiperSlide>
     ))}

@@ -17,6 +17,7 @@ import AdminBlog from "./pages/admin/AdminBlog";
 import AdminShop from "./pages/admin/AdminShop";
 import AdminAbout from "./pages/admin/AdminAbout";
 import AdminContact from "./pages/admin/AdminContact";
+import CheckoutPage from "./pages/checkOutPage";
 
 export const router = createBrowserRouter([
     {
@@ -53,6 +54,10 @@ export const router = createBrowserRouter([
           path: "shop/:id",
           element: <ShopDetailPage/>,
         },
+        {
+          path:"/cart",
+          element:<CheckoutPage/>
+        }
         
         
       ],

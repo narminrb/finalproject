@@ -1,0 +1,132 @@
+/* .checkout-container {
+    padding: 1rem;
+  }
+  
+  .checkout-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .checkout-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    color: black;
+  }
+  
+  .checkout-table th,
+  .checkout-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eaeaea;
+  }
+  
+  .product-cell {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .product-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+  
+  .product-name {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+  }
+  
+  .remove-btn {
+    background: none;
+    border: none;
+    color: #d9534f;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  .total-section {
+    margin-top: 2rem;
+    text-align: right;
+    font-size: 1.2rem;
+  }
+  
+  .checkout-btn {
+    margin-top: 1rem;
+    background-color: #4caf50;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .checkout-content {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .checkout-table-wrapper {
+    flex: 2;
+    max-width: 100%;
+  }
+  
+  .checkout-table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+  }
+  
+  .cart-totals-box {
+    flex: 1;
+    min-width: 260px;
+    border: 2px solid #222;
+    padding: 24px;
+  }
+  
+  .cart-totals-box h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .cart-total-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .total-bold {
+    font-weight: bold;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+  }
+  
+  .checkout-btn,
+  .continue-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .checkout-btn {
+    background-color: #222;
+    color: white;
+  }
+  
+  .continue-btn {
+    background-color: #eee;
+    color: #222;
+  }
+   */
