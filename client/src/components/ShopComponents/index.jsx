@@ -218,6 +218,7 @@ import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import 'remixicon/fonts/remixicon.css';
 import { getHomeCategory } from '../../api/homeCategory';
+import Breadcrumb from '../Bredcrumb/BreadCrumb';
 
 const ShopComponent = () => {
   const [showFilters, setShowFilters] = useState(false);
@@ -269,8 +270,8 @@ const ShopComponent = () => {
 
   return (
     <div className="bg-cover bg-center bg-no-repeat py-10">
-      <div className="home_bg">
-        <h2 className="category_title">Shop</h2>
+       <div className="home_bg flex items-center justify-center py-10">
+        <Breadcrumb />
       </div>
 
       <div className="container max-w-screen-xl mx-auto px-3">
