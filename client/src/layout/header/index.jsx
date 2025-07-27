@@ -87,16 +87,19 @@
 
 // export default Header
 
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import HeaderIcons from '../../components/HeaderIcons';
 import { useTranslation } from 'react-i18next';
+import { ChevronDown } from 'lucide-react'; // If not installed: npm install lucide-react
 
 const Header = () => {
   const { t, i18n } = useTranslation();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
+    setDropdownOpen(false);
   };
 
   return (
@@ -110,9 +113,39 @@ const Header = () => {
             />
           </a>
 
-          <div className="flex items-center lg:order-2">
-            <button onClick={() => changeLanguage('en')} className="text-white mx-2">EN</button>
-            <button onClick={() => changeLanguage('az')} className="text-white mx-2">AZ</button>
+          <div className="flex items-center lg:order-2 space-x-4 relative">
+            {/* Language Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => setDropdownOpen((prev) => !prev)}
+                className="flex items-center px-4 py-2 text-white hover:text-[#74a8b5] transition"
+              >
+                {i18n.language.toUpperCase()}
+                <ChevronDown className="w-4 h-4 ml-2" />
+              </button>
+
+              {dropdownOpen && (
+                <ul className="absolute right-0 mt-2 w-24 bg-white shadow-md  z-50 text-sm">
+                  <li>
+                    <button
+                      onClick={() => changeLanguage('en')}
+                      className="w-full px-4 py-2 hover:bg-gray-100 text-left text-black"
+                    >
+                      EN
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      onClick={() => changeLanguage('az')}
+                      className="w-full px-4 py-2 hover:bg-gray-100 text-left text-black"
+                    >
+                      AZ
+                    </button>
+                  </li>
+                </ul>
+              )}
+            </div>
+
             <HeaderIcons />
           </div>
 
