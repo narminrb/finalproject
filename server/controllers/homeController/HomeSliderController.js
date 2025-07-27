@@ -52,3 +52,51 @@ export const createHomeHeaderSliderController = (req, res) => {
 };
 
 
+export const deleteHomeHeaderSliderController = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const deleted = await HomeHeaderSliderSchema.findByIdAndDelete(id);
+
+    if (!deleted) {
+      return res.status(404).json({ message: "Slide not found" });
+    }
+
+    return res.status(200).json({ message: "Slide deleted successfully" });
+  } catch (error) {
+    console.error("DELETE HOME HEADER SLIDE ERROR:", error);
+    return res.status(500).json({ message: "Server error", error: error.message });
+  }
+};
+
+
+export const updateHomeHeaderSliderController = (req, res) => {
+  upload.single("image")(req, res, async (err) => {
+    if (err) {
+      return res.status(500).json({ message: "Failed to upload image", error: err.message });
+    }
+
+    const { id } = req.params;
+    const { name, description } = req.body;
+
+    try {
+      const slide = await HomeHeaderSliderSchema.findById(id);
+
+      if (!slide) {
+        return res.status(404).json({ message: "Slide not found" });
+      }
+
+      if (name) slide.name = name;
+      if (description) slide.description = description;
+      if (req.file) slide.image = req.file.path;
+
+      await slide.save();
+
+      return res.status(200).json({ message: "Slide updated successfully", slide });
+    } catch (error) {
+      console.error("UPDATE HOME HEADER SLIDE ERROR:", error);
+      return res.status(500).json({ message: "Server error", error: error.message });
+    }
+  });
+};
+
