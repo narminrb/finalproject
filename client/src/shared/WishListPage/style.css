@@ -54,13 +54,13 @@
     font-weight: bold;
   }
   
-  .qty-wrapper {
+  /* .qty-wrapper {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-  }
+  } */
   
-  .qty-control-minus,
+  /* .qty-control-minus,
   .qty-control-plus {
     cursor: pointer;
     background-color: #eee;
@@ -70,9 +70,9 @@
     border-radius: 4px;
     user-select: none;
     transition: background-color 0.2s;
-  }
+  } */
   
-  .qty-control-minus:hover,
+  /* .qty-control-minus:hover,
   .qty-control-plus:hover {
     background-color: #ccc;
   }
@@ -81,7 +81,7 @@
     min-width: 24px;
     text-align: center;
     font-weight: 600;
-  }
+  } */
   
   .action-btn {
     background: none;
