@@ -261,7 +261,7 @@ const AdminAboutPage = () => {
                       className="w-16 h-16 object-cover rounded"
                     />
                     <div>
-                      <p className="text-black font-bold">{page.name}</p>
+                      <p className="text-black">{page.name}</p>
                       <p className="text-sm">{page.description}</p>
                     </div>
                   </div>

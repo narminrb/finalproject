@@ -247,7 +247,7 @@ const AdminOffers = () => {
                       className="w-10 h-10 object-cover rounded"
                     />
                     <div>
-                      <p className="text-black font-bold">{offer.name}</p>
+                      <p className="text-black">{offer.name}</p>
                       <p className="text-sm">{offer.description}</p>
                     </div>
                   </div>
