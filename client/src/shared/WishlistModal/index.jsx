@@ -1,5 +1,6 @@
 import React from 'react';
 import './wishlist.css'; 
+import { Link } from 'react-router-dom';
 
 const WishlistSidebar = ({ wishlist, onClose }) => {
   return (
@@ -35,9 +36,10 @@ const WishlistSidebar = ({ wishlist, onClose }) => {
 
   <button
     className="wishlist-checkout-btn"
-    onClick={() => alert('Go to checkout')}
   >
+    <Link to="/wishlist">
     View Wishlist
+    </Link>
   </button>
 </div>
       </div>
