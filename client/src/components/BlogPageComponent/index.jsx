@@ -37,6 +37,7 @@ import { useQuery } from '@tanstack/react-query';
 import './styles.css';
 import { getBlogPage } from '../../api/blogpage';
 import BlogPageCard from '../../shared/BlogPageCard';
+import Breadcrumb from '../Bredcrumb/BreadCrumb';
 
 const BlogPageComponent = () => {
   const { data, isLoading } = useQuery({
@@ -65,8 +66,8 @@ const BlogPageComponent = () => {
 
   return (
     <div className="bg-cover bg-center bg-no-repeat py-10">
-      <div className="home_bg">
-        <h2 className="category_title">Blog</h2>
+       <div className="home_bg flex items-center justify-center py-10">
+        <Breadcrumb />
       </div>
       <div className="container max-w-screen-xl mx-auto my-10 px-3 relative">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-6">

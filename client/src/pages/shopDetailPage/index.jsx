@@ -286,6 +286,7 @@ import CartModalContent from '../../shared/CartModal';
 import useWishlist from '../../shared/Wishlist';
 import WishlistNotification from '../../shared/WishlistPopup';
 import WishlistSidebar from '../../shared/WishlistModal';
+import Breadcrumb from '../../components/Bredcrumb/BreadCrumb';
 
 const ShopDetailPage = () => {
   const { id } = useParams();
@@ -369,9 +370,9 @@ const ShopDetailPage = () => {
   return (
     <div className="home-categories-bg py-15">
       <div className="container max-w-screen-xl mx-auto px-3 relative">
-        <div className="home_bg">
-          <h2 className="category_title">{blog.name}</h2>
-        </div>
+      <div className="home_bg flex items-center justify-center py-10">
+        <Breadcrumb dynamicName={blog.name}/>
+      </div>
 
         <div className="shop-detail-container">
           <div className="grid grid-cols-12">
