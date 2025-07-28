@@ -19,6 +19,7 @@ import AdminAbout from "./pages/admin/AdminAbout";
 import AdminContact from "./pages/admin/AdminContact";
 import CheckoutPage from "./pages/checkOutPage";
 import WishlistPage from "./pages/WishlistPage";
+import CartPage from "./pages/cartPage";
 
 export const router = createBrowserRouter([
     {
@@ -62,6 +63,10 @@ export const router = createBrowserRouter([
         {
           path:"/wishlist",
           element:<WishlistPage/>
+        },
+        {
+          path:"/checkout",
+          element:<CartPage/>
         }
         
         

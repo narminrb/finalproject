@@ -18,6 +18,7 @@ import shopRouter from './routes/Shop/Shop.js'
 import shopReviewRouter from './routes/Shop/ShopReview.js'
 import cartRouter from './routes/Shop/Cart.js'
 import authRouter from './routes/Auth/auth.js'
+import stripeRouter from './routes/Stripe/Stripe.js'
 
 dotenv.config();
 
@@ -54,6 +55,8 @@ app.use("/api/shop",shopRouter)
 app.use("/api/reviews",shopReviewRouter)
 app.use("/api/cart",cartRouter)
 app.use("/api/auth", authRouter);
+app.use("/api/stripe", stripeRouter);
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

@@ -134,7 +134,6 @@ const WISHLIST_STORAGE_KEY = 'myapp_wishlist';
 
 const HeaderIcons = () => {
   const [wishlistCount, setWishlistCount] = useState(0);
-  const [cartCount, setCartCount] = useState(0);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const navigate = useNavigate();
@@ -181,25 +180,6 @@ const HeaderIcons = () => {
     };
   }, []);
   
-
-  useEffect(() => {
-    const fetchCartCount = async () => {
-      try {
-        const res = await fetch("http://localhost:3000/api/cart");
-        if (!res.ok) throw new Error("Failed to fetch cart");
-        const data = await res.json();
-        setCartCount(data.items.length);
-      } catch {
-        setCartCount(0);
-      }
-    };
-  
-    fetchCartCount();
-  
-    const interval = setInterval(fetchCartCount, 5000); // every 5 sec
-  
-    return () => clearInterval(interval);
-  }, []);
   
 
   useEffect(() => {
@@ -267,15 +247,10 @@ const HeaderIcons = () => {
       </div>
 
       <div className="relative">
-        <Link to="/cart" className="hover:text-[#74a8b5] transition">
-          <i className="ri-shopping-cart-2-line"></i>
-        </Link>
-        {cartCount > 0 && (
-          <span className="absolute top-1 -right-4 bg-[#74a8b5] text-white text-xs font-bold px-1 py-0.3 rounded-full">
-            {cartCount}
-          </span>
-        )}
-      </div>
+  <Link to="/cart" className="hover:text-[#74a8b5] transition">
+    <i className="ri-shopping-cart-2-line"></i>
+  </Link>
+</div>
     </div>
   );
 };

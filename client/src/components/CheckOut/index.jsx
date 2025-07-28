@@ -2,6 +2,8 @@ import React from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import './style.css';
 import { deleteCartItem, getCartItems, updateCartQuantity } from '../../api/cart';
+import { Link, Navigate } from 'react-router-dom';
+import api from '../../api/axios';
 
 const CheckOut = () => {
     const queryClient = useQueryClient();
@@ -19,7 +21,21 @@ const CheckOut = () => {
           queryClient.invalidateQueries(['cart']); // Refresh cart data
         }
       });
-      
+     
+      const handleCheckout = async () => {
+        try {
+          const res = await api.post('/stripe/create-checkout-session');
+          window.location.href = res.data.url;
+        } catch (err) {
+          console.error('Checkout failed:', err);
+          if (err.response?.status === 401) {
+            alert('Please login to continue.');
+            Navigate('/login');
+          } else {
+            alert('Error during checkout.');
+          }
+        }
+      };
 
 const removeMutation = useMutation({
   mutationFn: deleteCartItem,
@@ -129,7 +145,9 @@ const handleRemove = (productId) => {
           <span>Total:</span>
           <span>${total.toFixed(2)}</span>
         </div>
-        <button className="checkout-btn">Proceed to Checkout</button>
+        <button className="checkout-btn" onClick={handleCheckout}>
+          Proceed to Checkout
+        </button>
         <button className="continue-btn" onClick={() => window.location.href = '/shop'}>
           Continue Shopping
         </button>

@@ -133,9 +133,10 @@ const CartModalContent = ({ onClose }) => {
 
               <button
                 className="cart-checkout-btn"
-                onClick={() => alert('Go to checkout')}
               >
+                <Link to="/cart">
                 Checkout
+                </Link>
               </button>
             </div>
           </>
