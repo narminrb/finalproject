@@ -104,34 +104,12 @@ const AdminSidebar = ({ isMobile = false, onClose = () => {} }) => {
               >
                 Contact Us
               </NavLink>
-              <NavLink
-                className={({ isActive }) =>
-                  clsx(styles.items, isActive && styles.active)
-                }
-                to="/admin/drawing"
-                onClick={onClose}
-              >
-                Drawing
-              </NavLink>
             </nav>
             <div className={clsx(styles.logoedit)}>
               <div className={clsx(styles.logo)}>
               <img src="https://xstore.b-cdn.net/demos/2/artmaxy/wp-content/uploads/sites/23/2019/06/logo-footer.png" alt="" />
               </div>
             </div>
-
-            {/* If you want a logout button later, you can add it back:
-            <div
-              className={clsx(styles.exit)}
-              onClick={handleLogout}
-              role="button"
-              tabIndex={0}
-              aria-disabled={loading}
-              style={{ cursor: loading ? "not-allowed" : "pointer" }}
-            >
-              <Exit />
-            </div>
-            */}
           </div>
         </div>
       </div>

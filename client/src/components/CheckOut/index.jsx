@@ -18,7 +18,7 @@ const CheckOut = () => {
       const updateQtyMutation = useMutation({
         mutationFn: updateCartQuantity,
         onSuccess: () => {
-          queryClient.invalidateQueries(['cart']); // Refresh cart data
+          queryClient.invalidateQueries(['cart']); 
         }
       });
      
@@ -40,7 +40,7 @@ const CheckOut = () => {
 const removeMutation = useMutation({
   mutationFn: deleteCartItem,
   onSuccess: () => {
-    queryClient.invalidateQueries(['cart']); // refetch cart
+    queryClient.invalidateQueries(['cart']); 
   },
 });
 
@@ -67,7 +67,6 @@ const handleRemove = (productId) => {
     <p>Your cart is empty.</p>
   ) : (
     <div className="container max-w-screen-xl mx-auto my-10 px-3 relative checkout-content">
-      {/* Cart Table */}
       <div className="checkout-table-wrapper">
         <table className="checkout-table">
           <thead>
@@ -134,7 +133,6 @@ const handleRemove = (productId) => {
         </table>
       </div>
 
-      {/* Cart Totals */}
       <div className="cart-totals-box">
         <h3 className='text-black'>Cart Totals</h3>
         <div className="cart-total-line">

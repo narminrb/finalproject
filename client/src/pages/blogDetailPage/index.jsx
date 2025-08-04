@@ -18,7 +18,7 @@ const BlogDetailPage = () => {
     <div className='home-categories-bg py-15'>
     <div className="container max-w-screen-xl mx-auto px-3 relative">
         <div className="home_bg">
-        <h2 className="category_title">Insects Pencil Drawings</h2>
+        <h2 className="category_titlee">Insects Pencil Drawings</h2>
       </div>
     <div className="blog-detail-container">
       <div className="blog-header-img">
@@ -26,7 +26,7 @@ const BlogDetailPage = () => {
       </div>
 
       <div className="blog-detail-content">
-        <h1 className="blog-title">{blog.name}</h1>
+        <h1 className="blog-titlee">{blog.name}</h1>
         <div className="blog-meta"><i class="ri-calendar-2-line"></i> {new Date(blog.date).toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',

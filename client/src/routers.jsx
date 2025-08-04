@@ -20,6 +20,8 @@ import AdminContact from "./pages/admin/AdminContact";
 import CheckoutPage from "./pages/checkOutPage";
 import WishlistPage from "./pages/WishlistPage";
 import CartPage from "./pages/cartPage";
+import SuccessPage from "./pages/successPage";
+import DrawingPage from "./pages/drawingPage";
 
 export const router = createBrowserRouter([
     {
@@ -67,6 +69,14 @@ export const router = createBrowserRouter([
         {
           path:"/checkout",
           element:<CartPage/>
+        },
+        {
+          path:"/success",
+          element:<SuccessPage/>
+        },
+        {
+          path:"/drawing",
+          element:<DrawingPage/>
         }
         
         

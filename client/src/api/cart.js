@@ -1,8 +1,8 @@
-import api from "./axios"; // must have withCredentials: true
+import api from "./axios"; 
 
 export const getCartItems = async () => {
     const res = await api.get("/cart");
-    return res.data?.items ?? []; // if items undefined, return empty array
+    return res.data?.items ?? []; 
   };
   export const addToCart = async ({ productId, qty }) => {
     const res = await api.post('/cart/add', { productId, qty });

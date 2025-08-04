@@ -5,14 +5,13 @@ const Breadcrumb = ({ dynamicName = '' }) => {
   const location = useLocation();
   const pathnames = location.pathname.split('/').filter(Boolean);
 
-  // Get last breadcrumb name (for second line)
   let lastName = '';
   if (pathnames.length > 0) {
     lastName = decodeURIComponent(pathnames[pathnames.length - 1]);
     if (lastName === 'aboutus') lastName = 'About Us';
     else if (lastName === 'blog') lastName = 'Blog';
     else if (lastName === 'shop') lastName = 'Shop';
-    else if (lastName === 'drawing') lastName = 'Drawing';
+    else if (lastName === 'drawing') lastName = 'Process of drawing';
     else if (lastName === 'contactus') lastName = 'Contact Us';
 
     if (dynamicName) lastName = dynamicName;
@@ -20,7 +19,7 @@ const Breadcrumb = ({ dynamicName = '' }) => {
 
   return (
     <nav className="text-white text-center  uppercase">
-      {/* First line: Home */}
+    
       <div className="text-md hover:text-[#74a8b5]">
         <Link to="/">Home <span>›</span></Link>
       </div>

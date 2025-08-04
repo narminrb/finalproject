@@ -130,4 +130,35 @@
     padding: 0 20px;
     padding-bottom: 50px;
   }
+  @media (max-width: 768px) {
+    .contact-content {
+      flex-direction: column;
+      gap: 30px;
+      padding-top: 30px;
+    }
+  
+    .contact-content > div {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+  
+    .contact-form .input-row {
+      flex-direction: column;
+    }
+  
+    .contact-form input[type="text"],
+    .contact-form input[type="email"] {
+      width: 100%;
+      text-align: left;
+    }
+  
+    .contact-form textarea {
+      text-align: left;
+    }
+  
+    .contact-form button {
+      width: 100%;
+      font-size: 14px;
+    }
+  }
   

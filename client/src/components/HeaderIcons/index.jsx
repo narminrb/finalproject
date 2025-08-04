@@ -126,6 +126,8 @@
 // };
 
 // export default HeaderIcons;
+
+
 import React, { useEffect, useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import SearchModal from "../../shared/SearchModal";
@@ -142,7 +144,6 @@ const HeaderIcons = () => {
   const [categoriesData, setCategoriesData] = useState([]);
   const [productsData, setProductsData] = useState([]);
 
-  // Fetch categories
   useEffect(() => {
     fetch("http://localhost:3000/api/homecategory")
       .then(res => res.json())
@@ -150,7 +151,6 @@ const HeaderIcons = () => {
       .catch(console.error);
   }, []);
 
-  // Fetch products
   useEffect(() => {
     fetch("http://localhost:3000/api/shop")
       .then(res => res.json())
@@ -158,7 +158,6 @@ const HeaderIcons = () => {
       .catch(console.error);
   }, []);
 
-  // On mount, read wishlist count from localStorage
   useEffect(() => {
     const updateWishlistCount = () => {
       try {
@@ -169,10 +168,8 @@ const HeaderIcons = () => {
       }
     };
   
-    // Initial load
     updateWishlistCount();
   
-    // Listen for localStorage changes
     window.addEventListener('storage', updateWishlistCount);
   
     return () => {

@@ -1,37 +1,3 @@
-// import React from 'react';
-// import { useQuery } from '@tanstack/react-query';
-// import './styles.css'
-// import { getBlogPage } from '../../api/blogpage';
-// import BlogPageCard from '../../shared/BlogPageCard';
-
-// const BlogPageComponent = () => {
-//   const { data, isLoading } = useQuery({
-//     queryKey: ['blogpage'],
-//     queryFn: getBlogPage,
-//   });
-
-//   if (isLoading) return <p>Loading...</p>;
-
-//   return (
-//     <div className="home-categories-bg bg-cover bg-center bg-no-repeat py-10">
-//             <div className='home_bg'>
-//                 <h2 className='category_title'>
-//                     Blog
-//                 </h2>
-//             </div>
-//     <div className="container max-w-screen-xl mx-auto my-10 px-3 relative">
-//       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-6">
-//         {data?.data.map((blogpage) => (
-//           <BlogPageCard key={blogpage.id} blogpage={blogpage} />
-//         ))}
-//       </div>
-//     </div>
-//     </div>
-//   );
-// };
-
-// export default BlogPageComponent;
-
 import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import './styles.css';

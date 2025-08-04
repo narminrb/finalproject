@@ -54,34 +54,7 @@
     font-weight: bold;
   }
   
-  /* .qty-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  } */
   
-  /* .qty-control-minus,
-  .qty-control-plus {
-    cursor: pointer;
-    background-color: #eee;
-    border: none;
-    padding: 0.3rem 0.7rem;
-    font-size: 1.2rem;
-    border-radius: 4px;
-    user-select: none;
-    transition: background-color 0.2s;
-  } */
-  
-  /* .qty-control-minus:hover,
-  .qty-control-plus:hover {
-    background-color: #ccc;
-  }
-  
-  .qty-control {
-    min-width: 24px;
-    text-align: center;
-    font-weight: 600;
-  } */
   
   .action-btn {
     background: none;
@@ -98,11 +71,11 @@
   }
   
   .remove-btn {
-    color: #d9534f;
+    color: #4e4e4e;
   }
   
   .remove-btn:hover {
-    color: #b52b27;
+    color: #2d2c2c;
   }
   
   .wishlist-empty {

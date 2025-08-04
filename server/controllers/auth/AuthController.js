@@ -91,20 +91,40 @@ export const logout = (req, res) => {
 //   });
 // };
 
-export const verify = (req, res) => {
-    const token = req.cookies.token;
-    if (!token) return res.status(401).json({ message: "Unauthorized" });
+// export const verify = (req, res) => {
+//     const token = req.cookies.token;
+//     if (!token) return res.status(401).json({ message: "Unauthorized" });
   
-    const secret = process.env.JWT_SECRET;  // read it fresh here
-    if (!secret) {
-      console.error("❌ JWT_SECRET is missing");
-      return res.status(500).json({ message: "Server error: missing JWT secret" });
-    }
+//     const secret = process.env.JWT_SECRET;  // read it fresh here
+//     if (!secret) {
+//       console.error("❌ JWT_SECRET is missing");
+//       return res.status(500).json({ message: "Server error: missing JWT secret" });
+//     }
   
-    jwt.verify(token, secret, (err, decoded) => {
-      if (err) return res.status(401).json({ message: "Invalid token" });
-      res.json({ id: decoded.id });
-    });
-  };
+//     jwt.verify(token, secret, (err, decoded) => {
+//       if (err) return res.status(401).json({ message: "Invalid token" });
+//       res.json({ id: decoded.id });
+//     });
+//   };
   
+export const verify = async (req, res) => {
+  const token = req.cookies.token;
+  if (!token) return res.status(401).json({ message: "Unauthorized" });
 
+  const secret = process.env.JWT_SECRET;
+  if (!secret) {
+    console.error("❌ JWT_SECRET is missing");
+    return res.status(500).json({ message: "Server error: missing JWT secret" });
+  }
+
+  try {
+    const decoded = jwt.verify(token, secret);
+    const user = await User.findById(decoded.id);
+    if (!user) return res.status(401).json({ message: "User no longer exists" });
+
+    res.status(200).json({ id: user._id, name: user.name, email: user.email });
+  } catch (err) {
+    console.error("❌ Token verification failed:", err);
+    res.status(401).json({ message: "Invalid token" });
+  }
+};

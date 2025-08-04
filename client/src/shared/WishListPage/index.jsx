@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { FaEye, FaTrash } from 'react-icons/fa'; // FontAwesome icons, install with: npm i react-icons
+import { FaEye, FaTrash } from 'react-icons/fa';
 import './style.css';
 import { addToCart } from '../../api/cart';
 
@@ -37,21 +37,18 @@ const triggerPopup = () => {
           const stored = localStorage.getItem(WISHLIST_STORAGE_KEY);
           const parsed = stored ? JSON.parse(stored) : [];
           parsed.forEach(item => {
-            initial[item._id] = 1; // default qty = 1 for each item
+            initial[item._id] = 1; 
           });
         } catch {}
         return initial;
       });
 
-  // Placeholder for your updateCartQuantity mutation, you can reuse yours from CheckOut
   const updateQtyMutation = useMutation({
     mutationFn: ({ productId, qty }) => {
-      // You can import and call your updateCartQuantity API function here
-      // For now, just returning a resolved promise to simulate success
       return Promise.resolve();
     },
     onSuccess: () => {
-      queryClient.invalidateQueries(['cart']); // Refresh cart data if needed
+      queryClient.invalidateQueries(['cart']); 
     },
   });
 
@@ -63,7 +60,7 @@ const triggerPopup = () => {
   const addToCartMutation = useMutation({
     mutationFn: ({ productId, qty }) => addToCart({ productId, qty }),
     onSuccess: () => {
-      queryClient.invalidateQueries(['cart']); // update cart items
+      queryClient.invalidateQueries(['cart']); 
     },
     onError: (error) => {
       console.error('Failed to add to cart:', error);
@@ -104,7 +101,7 @@ const triggerPopup = () => {
                   className="product-img"
                   style={{ width: 90, height: 70, objectFit: 'cover' }}
                 />
-                <span>{item.name}</span>
+                <span className='text-black'>{item.name}</span>
               </td>
               <td>
               <div className="qty-wrapper">

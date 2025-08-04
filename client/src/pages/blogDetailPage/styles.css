@@ -11,8 +11,7 @@
     object-fit: cover;
   }
   
-  .blog-title {
-    font-size: 50px;
+  .blog-titlee {
     letter-spacing: 2px;
     margin: 20px 0 10px;
     text-align: center;
@@ -102,4 +101,36 @@
     gap: 15px;
     padding: 30px;
     font-size: 20px;
+  }
+
+  .category_titlee{
+    font-size: 40px;
+  color: #ffffff;
+  line-height: 2.5;
+  text-align: center;
+  font-family: "Amithen";
+  font-weight: 400;
+  }
+  @media (max-width: 768px) {
+    .blog-section,
+    .blog-section.reverse {
+      flex-direction: column;
+    }
+  
+    .blog-titlee {
+      font-size: 30px;
+    }
+  
+    .blog-meta {
+      font-size: 0.8rem;
+    }
+    .category_titlee{
+      font-size: 30px;
+    color: #ffffff;
+    line-height: 2.5;
+    text-align: center;
+    font-family: "Amithen";
+    font-weight: 400;
+    }
+    
   }
